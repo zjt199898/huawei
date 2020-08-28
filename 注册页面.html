@@ -6,126 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="sass/index.scss">
+    <link rel="stylesheet" href="css/index.css">
+    <!-- <link rel="stylesheet" href="sass/index.scss"> -->
 </head>
-<style>
-    body,
-    html {
-        width: 100%;
-        height: 100%;
-    }
-    
-    body {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    #box {
-        width: 100%;
-        height: 100%;
-        position: relative;
-    }
-    /* 头部 */
-    
-    #header {
-        width: 100%;
-        height: 40px;
-        background: #cecece;
-        display: flex;
-        justify-content: center;
-        position: fixed;
-        top: 0;
-    }
-    
-    #header img {
-        display: block;
-        height: 20px;
-    }
-    
-    #cont {
-        width: 960px;
-        height: 40px;
-        line-height: 40px;
-    }
-    
-    #header #cont div {
-        height: 40px;
-        line-height: 40px;
-        padding-top: 10px;
-        float: left;
-    }
-    
-    #header #cont p {
-        height: 40px;
-        font-size: 16px;
-        font-weight: bold;
-        float: left;
-        margin-left: 10px;
-    }
-    /* 内容区域 */
-    
-    #content {
-        width: 100%;
-        height: 100%;
-        padding: 40px 0 88px 0;
-        display: flex;
-        justify-content: center;
-    }
-    
-    #cont1 {
-        height: 100%;
-        width: 960px;
-        display: flex;
-        justify-content: center;
-        position: relative;
-    }
-    
-    .dj {
-        width: 200px;
-        position: absolute !important;
-        top: 0;
-        left: 0;
-    }
-    
-    .btn {
-        width: 200px;
-        cursor: pointer;
-    }
-    
-    #jz {
-        width: 400px;
-    }
-    
-    #jz li {
-        margin-top: 20px;
-        background: #cecece;
-    }
-    
-    #jz div {
-        text-align: center;
-    }
-    
-    #jz div div {
-        font-size: 18px;
-        display: flex;
-        justify-content: center;
-    }
-    
-    #jz div div div {
-        color: blue;
-    }
-    /* 底部 */
-    
-    #footer {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        height: 88px;
-        background: pink;
-    }
-</style>
 
 <body>
+    <!-- //头部 -->
     <div id="box">
         <div id="header">
             <div id="cont">
@@ -135,15 +21,19 @@
                 <p>| 华为商城</p>
             </div>
         </div>
-
+        <!-- 内容区 -->
         <div id="content">
             <div id="cont1">
                 <div class="btn-group dj">
                     <div role="group">
-                        <button type="button" class="btn btn-default">手机号注册</button>
+                        <button type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-phone"></span>
+                            手机号注册</button>
                     </div>
                     <div role="group">
-                        <button type="button" class="btn btn-default">手机邮箱注册</button>
+                        <button type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-envelope"></span>
+                            手机邮箱注册</button>
                     </div>
                 </div>
                 <div id="jz">
@@ -158,19 +48,53 @@
                             </div>
                         </div>
                     </div>
+                    <div>
+                        <li class="list-group-item diqu">
+                            <p>国家/地区</p>
+                            <div> 中国<span class="glyphicon glyphicon-triangle-bottom"></span></div>
+                        </li>
+                    </div>
+                    <div>
+                        <li class="list-group-item sjh">
+                            <div>+86(中国)
+                                <span class="glyphicon glyphicon-triangle-bottom"></span>|
+                            </div>
+
+                            <input type="text" placeholder="请输入密码">
+
+                        </li>
+                    </div>
                     <ul class="list-group">
-                        <li class="list-group-item"></li>
-                        <li class="list-group-item"></li>
-                        <li class="list-group-item"></li>
-                        <li class="list-group-item"></li>
-                        <li class="list-group-item"></li>
-                        <li class="list-group-item"></li>
+                        <li class="list-group-item">
+                            <input type="text" placeholder="短信验证码">
+                            <span id="blue">获取验证码</span>
+                        </li>
+                        <li class="list-group-item">
+                            <input type="text" placeholder="密码">
+                            <span class="glyphicon glyphicon-eye-close"></span>
+                        </li>
+                        <li class="list-group-item">
+                            <input type="text" placeholder="确认密码">
+                            <span class="glyphicon glyphicon-eye-close"></span>
+                        </li>
+
+                        <li class="list-group-item rq">
+                            <span class="glyphicon glyphicon-exclamation-sign rq1"></span>
+                        </li>
                     </ul>
+                    <div class="zh">
+                        <input type="button" value="注册">
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div id="footer"></div>
+        <!-- 底部 -->
+        <div id="footer">
+            <div id="nav">
+                <p><a href="">华为账号和云用户空间协议</a>|<a href="">关于华为与云空间隐私声明</a>|<a href="">常见问题</a>|<a href="">Cookies</a></p>
+                <p><span>华为账号</span><span>版权所有</span><span class="glyphicon glyphicon-copyright-mark"></span><span>2012-2020</span></p>
+            </div>
+        </div>
 
     </div>
     <script src="./js/jquery-1.11.0.js"></script>
