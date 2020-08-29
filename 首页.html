@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/shouye.css">
+    <link rel="stylesheet" href="./font_uaxogztsgeo/iconfont.css">
+
+
+</head>
+
+<body></body>
+<div class="nav">
+    <div>
+        <ul class="text-left left">
+            <li><a href="">首页</a><span class="iconfont icon-vertical_line"></span></li>
+            <li><a href="">华为官网</a><span class="iconfont icon-vertical_line"></span></li>
+            <li><a href="">荣耀官网</a><span class="iconfont icon-vertical_line"></span></li>
+            <li><a href="">花粉俱乐部</a><span class="iconfont icon-vertical_line"></span></li>
+            <li><a href="">v码(优选购)</a><span class="iconfont icon-vertical_line"></span></li>
+            <li><a href=""> 企业购</a><span class="iconfont icon-vertical_line"></span></li>
+            <li><a href="">Select Region</a><span class="iconfont icon-vertical_line"></span></li>
+            <li><a href="">更多精彩</a><span class="glyphicon glyphicon-chevron-down"></span></li>
+        </ul>
+        <ul class="right">
+
+
+
+
+            <li>
+                购物车(0)
+                <span class="glyphicon glyphicon-shopping-cart"></span>
+            </li>
+            <li>
+                手机版
+                <span class="glyphicon glyphicon-chevron-down"></span>
+            </li>
+            <li>
+                网站导航
+                <span class="glyphicon glyphicon-chevron-down"></span>
+                <span class="iconfont icon-vertical_line"></span>
+
+            </li>
+            <li>
+                客服服务
+                <span class="glyphicon glyphicon-chevron-down"></span>
+                <span class="iconfont icon-vertical_line"></span>
+            </li>
+            <li>
+                <a href="">我的订单</a>
+                <span class="iconfont icon-vertical_line"></span>
+            </li>
+            <li>
+                <a href="">注册</a>
+                <span class="iconfont icon-vertical_line"></span>
+            </li>
+            <li>
+                <a href="">请登录</a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+<div id="box">
+    <!-- 头部 -->
+    <div class="header">
+        <a href=""><img src="https://res.vmallres.com/pimages//common/config/logo/SXppnESYv4K11DBxDFc2.png" alt=""></a>
+
+        <ul>
+            <li>
+                <a href=""><img src="https://res.vmallres.com/pimages//navigation/icon/GrguiqzHENWVYHYWyHBM.png" alt=""></a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="https://res.vmallres.com/pimages//navigation/icon/AHwTUFRpDSQyuIZ7tLJz.png" alt="">
+                </a>
+            </li>
+            <li>
+                <span>
+                    <a href="">
+
+                        华为p40系列
+                    </a>
+            </span>
+            </li>
+            <li>
+                <span>
+                    <a href="">
+
+                        荣耀30
+                    </a>
+                </span>
+            </li>
+            <li>
+                <span>
+                    <a href="">
+
+                        安信乐居
+                    </a>
+                </span>
+            </li>
+        </ul>
+
+
+        <input type="text" placeholder="p40  荣耀30">
+        <span class="glyphicon glyphicon-search"></span>
+    </div>
+
+    <div class="lbt">
+        <img src="https://res.vmallres.com/pimages//pages/picImages/95828462689516482859.jpg" alt="">
+        <img src="https://res.vmallres.com/pimages//pages/picImages/58727184389518172785.jpg" alt="">
+        <img src="https://res.vmallres.com/pimages//pages/picImages/92528341489514382529.jpg" alt="">
+        <img src="https://res.vmallres.com/pimages//pages/picImages/13117462689516471131.jpg" alt="">
+        <img src="https://res.vmallres.com/pimages//pages/picImages/70285092589519058207.jpg" alt="">
+        <img src="https://res.vmallres.com/pimages//pages/picImages/38967025489512076983.jpg" alt="">
+
+        <div>
+            <span id="t1" class="glyphicon glyphicon-chevron-left"></span>
+            <span id="t2" class="glyphicon glyphicon-chevron-right"></span>
+        </div>
+        <ul>
+            <li class="bzd"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+
+        </ul>
+
+    </div>
+</div>
+
+
+
+<script>
+    var sum = 0;
+    var oDiv = document.querySelector(".lbt");
+    var oSpan = document.querySelectorAll(".lbt span");
+    var aLi = document.querySelectorAll(".lbt li");
+    var aimg = document.querySelectorAll(".lbt img");
+    console.log(oSpan)
+
+    function move() {
+        sum += 1;
+        if (sum == aimg.length) {
+            sum = 0;
+        }
+
+        for (let i = 0; i < aimg.length; i++) {
+            //所有的照片都为透明，用move改变透明度
+            startMove(aimg[i], {
+                opacity: 0
+            })
+            aLi[i].className = "";
+            for (let j = 0; j < aimg.length; j++) {
+                //2张照片进行透明切换
+                startMove(aimg[sum], {
+                    opacity: 100
+                })
+                aLi[sum].className = "bzd";
+            }
+        }
+    }
+
+
+    //自动播放
+    clearInterval(timer);
+    var timer = setInterval(function() {
+        move();
+    }, 3000)
+
+    //点击左按钮切换图片
+    oSpan[0].onclick = function() {
+            //跟正常走法相反，所有边界也相反
+            if (sum == 0) {
+                sum = aimg.length;
+            }
+            //向后走，减减
+            sum--;
+            for (let i = 0; i < aimg.length; i++) {
+                //所有的照片都为透明，用move改变透明度
+                startMove(aimg[i], {
+                    opacity: 0
+                })
+                aLi[i].className = "";
+                for (let j = 0; j < aimg.length; j++) {
+                    startMove(aimg[sum], {
+                        opacity: 100
+                    })
+                    aLi[sum].className = "bzd";
+                }
+            }
+        }
+        //点击右键切换图片
+    oSpan[1].onclick = function() {
+        move();
+    }
+
+
+    //小圆点
+    //鼠标移入
+    for (let k = 0; k < aLi.length; k++) {
+        aLi[k].onmouseover = function() {
+                for (let a = 0; a < aLi.length; a++) {
+                    //先把所有的清除
+                    aLi[a].className = "";
+                    //鼠标移入的圆点添加样式
+                    aLi[k].className = "bzd";
+                    //改变点击的透明度
+                    for (let i = 0; i < aimg.length; i++) {
+                        //改变移入的照片与之前照片的透明度，也可以改称为移入的照片和移入照片上一张，那样要设置边界
+                        startMove(aimg[i], {
+                            opacity: 0
+                        })
+                        for (let j = 0; j < aimg.length; j++) {
+                            startMove(aimg[k], {
+                                opacity: 100
+                            })
+
+                        }
+                    }
+                }
+            }
+            //鼠标移除改变move里面sum值，从鼠标移除的照片开始向下走
+        aLi[k].onmouseout = function() {
+            sum = k;
+        }
+    }
+    //鼠标移入停止定时器
+    oDiv.onmouseover = function() {
+            clearInterval(timer);
+        }
+        //鼠标移除开启定时器
+    oDiv.onmouseout = function() {
+        timer = setInterval(function() {
+            move();
+
+        }, 3000)
+    }
+</script>
+<script src="./js/jquery-1.11.0.js"></script>
+<script src="./js/bootstrap.js"></script>
+<script src="./js/startmove.js"></script>
+</body>
+
+</html>
