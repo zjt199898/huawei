@@ -7,8 +7,264 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- <link rel="stylesheet" href="sass/index.scss"> -->
-    <link rel="stylesheet" href="css/index.css">
 </head>
+<style>
+    body,
+    html {
+        width: 100%;
+        height: 100%;
+    }
+    
+    #box {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    /* 头部 */
+    
+    #header {
+        width: 100%;
+        height: 40px;
+        background: #cecece;
+        display: flex;
+        justify-content: center;
+    }
+    
+    #header img {
+        display: block;
+        height: 20px;
+    }
+    
+    #cont {
+        width: 960px;
+        height: 40px;
+        line-height: 40px;
+    }
+    
+    #header #cont div {
+        height: 40px;
+        line-height: 40px;
+        padding-top: 10px;
+        float: left;
+    }
+    
+    #header #cont p {
+        height: 40px;
+        font-size: 16px;
+        font-weight: bold;
+        float: left;
+        margin-left: 10px;
+    }
+    /* 内容区域 */
+    
+    #content {
+        height: 690px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    #cont1 {
+        height: 100%;
+        width: 960px;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        padding-top: 50px;
+    }
+    
+    .dj {
+        width: 200px;
+        position: absolute !important;
+        top: 0;
+        left: 0;
+    }
+    
+    .dj .btn {
+        border: none;
+        outline: none !important;
+    }
+    
+    .btn {
+        width: 200px;
+        cursor: pointer;
+    }
+    
+    #jz {
+        width: 400px;
+        position: absolute;
+        left: 0;
+        top: 80px;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        display: none;
+    }
+    
+    #jz li {
+        margin-top: 20px;
+        background: #cecece;
+        height: 58px;
+    }
+    
+    #jz div {
+        text-align: center;
+    }
+    
+    #jz div div {
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    #jz div div div {
+        color: blue;
+    }
+    
+    .diqu {
+        line-height: 38px !important;
+    }
+    
+    .diqu p {
+        float: left;
+    }
+    
+    .diqu div {
+        float: right;
+    }
+    
+    .diqu div span {
+        line-height: 38px;
+        margin-left: 10px;
+    }
+    
+    .sjh div {
+        width: 30%;
+        float: left;
+        font-size: 16px !important;
+        line-height: 38px;
+    }
+    
+    .sjh div span {
+        line-height: 38px;
+        margin: 0 5px;
+    }
+    
+    .sjh input {
+        width: 60%;
+        float: right;
+        height: 100%;
+        border: none;
+        background: #cecece;
+        outline: none;
+    }
+    
+    #cont1 ul li input {
+        width: 70%;
+        outline: none;
+        height: 100%;
+        border: none;
+        background: #cecece;
+        line-height: 38px;
+    }
+    
+    #cont1 ul li span {
+        float: right;
+        color: black;
+        line-height: 38px;
+    }
+    
+    #blue {
+        color: blue !important;
+    }
+    
+    .zh input {
+        background: skyblue;
+        border: none;
+        outline: none;
+        height: 48px;
+        width: 200px;
+        border-radius: 10px;
+    }
+    
+    .rq {
+        position: relative;
+    }
+    
+    .rq1 {
+        position: absolute;
+        right: -20px;
+        line-height: 58px !important;
+        color: #cecece !important;
+    }
+    /* 隐藏 */
+    
+    #jz1 {
+        width: 400px;
+        position: absolute;
+        left: 0;
+        top: 80px;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+    
+    #jz1 li {
+        margin-top: 20px;
+        background: #cecece;
+        height: 58px;
+    }
+    
+    #jz1 .sjh input {
+        width: 100%;
+        height: 100%;
+    }
+    
+    #jz1 div {
+        text-align: center;
+    }
+    
+    #jz1 div div {
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    #jz1 div div div {
+        color: blue;
+    }
+    /* 底部 */
+    
+    #footer {
+        display: flex;
+        bottom: 0;
+        width: 100%;
+        height: 88px;
+        justify-content: center;
+        margin-top: 127px;
+        background: #cecece;
+    }
+    
+    #footer #nav {
+        width: 960px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    #nav a {
+        margin: 0 5px;
+        color: black;
+    }
+    
+    #nav span {
+        margin: 0 5px;
+        color: black !important;
+        opacity: .3;
+        background: w;
+    }
+</style>
 
 <body>
     <!-- //头部 -->
@@ -35,53 +291,57 @@
                             <span class="glyphicon glyphicon-envelope"></span>
                             手机邮箱注册</button>
                     </div>
-
-                    <div id="jz">
+                </div>
+                <div id="jz">
+                    <div class="text-center">
+                        <h2>
+                            华为账号注册
+                        </h2>
                         <div class="text-center">
-                            <h2>
-                                华为账号注册
-                            </h2>
-                            <div class="text-center">
-                                <p>已用账号，</p>
-                                <div>去登陆
-                                    <span class="glyphicon glyphicon-chevron-right"></span>
-                                </div>
+                            <p>已用账号，</p>
+                            <div>去登陆
+                                <span class="glyphicon glyphicon-chevron-right"></span>
                             </div>
                         </div>
-                        <div>
-                            <li class="list-group-item diqu">
-                                <p>国家/地区</p>
-                                <div> 中国<span class="glyphicon glyphicon-triangle-bottom"></span></div>
-                            </li>
-                        </div>
-                        <div>
-                            <li class="list-group-item sjh">
+                    </div>
+                    <div>
+                        <li class="list-group-item diqu">
+                            <p>国家/地区</p>
+                            <div> 中国<span class="glyphicon glyphicon-triangle-bottom"></span></div>
+                        </li>
+                    </div>
+                    <div>
+                        <li class="list-group-item sjh">
+                            <div>+86(中国)
+                                <span class="glyphicon glyphicon-triangle-bottom"></span>|
+                            </div>
 
-                            </li>
-                        </div>
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <input type="text" placeholder="短信验证码">
-                                <span id="blue">获取验证码</span>
-                            </li>
-                            <li class="list-group-item">
-                                <input type="text" placeholder="密码">
-                                <span class="glyphicon glyphicon-eye-close"></span>
-                            </li>
-                            <li class="list-group-item">
-                                <input type="text" placeholder="确认密码">
-                                <span class="glyphicon glyphicon-eye-close"></span>
-                            </li>
+                            <input type="text" placeholder="请输入密码">
+                        </li>
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <input type="text" placeholder="短信验证码">
+                            <span id="blue">获取验证码</span>
+                        </li>
+                        <li class="list-group-item">
+                            <input type="text" placeholder="密码">
+                            <span class="glyphicon glyphicon-eye-close"></span>
+                        </li>
+                        <li class="list-group-item">
+                            <input type="text" placeholder="确认密码">
+                            <span class="glyphicon glyphicon-eye-close"></span>
+                        </li>
 
-                            <li class="list-group-item rq">
-                                <span class="glyphicon glyphicon-exclamation-sign rq1"></span>
-                            </li>
-                        </ul>
-                        <div class="zh">
-                            <input type="button" value="注册">
-                        </div>
+                        <li class="list-group-item rq">
+                            <span class="glyphicon glyphicon-exclamation-sign rq1"></span>
+                        </li>
+                    </ul>
+                    <div class="zh">
+                        <input type="button" value="注册">
                     </div>
                 </div>
+
                 <div id="jz1">
                     <div class="text-center">
                         <h2>
@@ -141,6 +401,34 @@
     </div>
     <script src="./js/jquery-1.11.0.js"></script>
     <script src="./js/bootstrap.js"></script>
+    <script>
+        $(function() {
+            $(".dj .btn").eq(0).click(function() {
+
+
+                $(".dj .btn").eq(0).css({
+                    "background": "#cecece"
+                });
+                $(".dj .btn").eq(1).css({
+                    "background": "white"
+                });
+                $("#jz").show();
+                $("#jz1").hide();
+            })
+        })
+        $(".dj .btn").eq(1).click(function() {
+
+            $(".dj .btn").eq(1).css({
+                "background": "#cecece"
+            });
+            $(".dj .btn").eq(0).css({
+                "background": "white"
+            });
+            $("#jz1").show();
+            $("#jz").hide();
+
+        })
+    </script>
 </body>
 
 </html>

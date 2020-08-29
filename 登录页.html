@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="./font/iconfont.css">
+    <!-- <link rel="stylesheet" href="sass/index.scss"> -->
+</head>
+<style>
+    body,
+    html {
+        width: 100%;
+        height: 100%;
+    }
+    
+    #box {
+        width: 100%;
+        min-width: 690px;
+        height: 946px;
+        position: relative;
+    }
+    /* 头部 */
+    
+    #header {
+        width: 100%;
+        height: 40px;
+        background: #cecece;
+        display: flex;
+        justify-content: center;
+    }
+    
+    #header img {
+        display: block;
+        height: 20px;
+    }
+    
+    #cont {
+        width: 960px;
+        height: 40px;
+        line-height: 40px;
+    }
+    
+    #header #cont div {
+        height: 40px;
+        line-height: 40px;
+        padding-top: 10px;
+        float: left;
+    }
+    
+    #header #cont p {
+        height: 40px;
+        font-size: 16px;
+        font-weight: bold;
+        float: left;
+        margin-left: 10px;
+    }
+    /* 内容区域 */
+    
+    #content {
+        height: 818px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    #cont1 {
+        height: 818px;
+        width: 960px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        padding-top: 50px;
+    }
+    
+    #cont1 h3 {
+        width: 100%;
+        margin: 20px 0 110px 0;
+        text-align: center;
+        float: left;
+        font-size: 32px;
+    }
+    
+    #cont1 div {
+        width: 100%;
+        display: flex;
+    }
+    
+    #cont1 .ewm {
+        width: 100%;
+        height: 300px;
+        border-right: 1px solid #cecece;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    #cont1 .ewm span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 200px;
+        background: #f7f7f7;
+        text-align: center;
+    }
+    
+    #cont1 .ewm span img {
+        display: block;
+        width: 160px;
+        height: 160px;
+    }
+    
+    #cont1 .ewm p {
+        margin-bottom: 20px;
+    }
+    
+    .dl {
+        position: relative;
+    }
+    
+    .show {
+        display: flex;
+        flex-direction: column;
+        width: 360px !important;
+        height: 400px;
+        position: absolute;
+        left: 100px;
+        text-align: center;
+    }
+    
+    .show li {
+        height: 48px;
+        margin-bottom: 30px;
+        list-style: none;
+        position: relative;
+    }
+    
+    .show li input {
+        width: 100%;
+        height: 100%;
+        outline: none;
+        text-indent: 15px;
+    }
+    
+    .show input {
+        background: rgba(0, 0, 0, 0.05);
+        border: none;
+        border-radius: 5px;
+    }
+    
+    .show li span {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        right: 14px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        opacity: .3;
+        line-height: 20px;
+        color: #cecece !important;
+        opacity: .8;
+    }
+    
+    .show :nth-child(4) {
+        width: 100% !important;
+        height: 38px !important;
+        background: #ca141d !important;
+        opacity: .5;
+        outline: none;
+        border: none;
+        color: white;
+        margin-bottom: 20px;
+    }
+    
+    .dianji {
+        display: block;
+        width: 100% !important;
+        color: blue;
+        cursor: pointer;
+        margin-bottom: 30px;
+        text-align: left !important;
+    }
+    
+    .show :nth-child(5) {
+        height: 30px;
+        line-height: 30px;
+        font-size: 16px;
+        margin-top: 30px;
+    }
+    
+    .show :nth-child(5) a {
+        color: blue;
+        margin: 0 5px;
+        text-decoration: none;
+    }
+    
+    .show div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    
+    .show div p {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .show div span {
+        display: block;
+        text-align: center !important;
+        line-height: 40px;
+        font-size: 20px;
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 50%;
+        background: #cecece;
+        color: black;
+        opacity: .7;
+        margin-right: 10px;
+    }
+    
+    .dianji {
+        display: block;
+        width: 100% !important;
+        color: blue;
+        cursor: pointer;
+        margin-bottom: 30px;
+        text-align: left !important;
+    }
+    /* 底部 */
+    
+    #footer {
+        display: flex;
+        bottom: 0;
+        width: 100%;
+        height: 88px;
+        justify-content: center;
+        background: #cecece;
+        margin-top: -88px;
+    }
+    
+    #footer #nav {
+        width: 960px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    #nav a {
+        margin: 0 5px;
+        color: black;
+    }
+    
+    #nav span {
+        margin: 0 5px;
+        color: black !important;
+        opacity: .3;
+    }
+</style>
+
+<body>
+    <!-- //头部 -->
+    <div id="box">
+        <div id="header">
+            <div id="cont">
+                <div>
+                    <img src="https://id1.cloud.huawei.com/CAS/up/idmw_rss_58/logos/HUAWEI.svg" alt="">
+                </div>
+                <p>| 华为商城</p>
+            </div>
+        </div>
+        <!-- 内容区 -->
+        <div id="content">
+            <div id="cont1">
+                <h3>
+                    华为账号登录
+                </h3>
+                <div>
+                    <!-- 二维码 -->
+                    <div class="ewm">
+                        <span><img src="./img/下载.png" alt=""></span>
+                        <p>若你使用华为手机，请进入“设置”>“华为账号”扫码登录。</p>
+
+                    </div>
+                    <!-- 中间竖杆 -->
+
+                    <!-- 右边登录列表 -->
+                    <div class="dl">
+                        <!-- 第一个 -->
+                        <div class="show">
+                            <li>
+                                <input type="text" placeholder="手机号/邮箱地址/华为号">
+                            </li>
+                            <li>
+                                <input type="text" placeholder="密码">
+                                <span class="glyphicon glyphicon-eye-close"></span>
+                            </li>
+                            <span class="dianji">短信验证码登录</span>
+                            <input type="button" value="登录">
+
+                            <div class="hone">
+
+                                <p>
+                                    <a href="">注册</a>|
+                                    <a href="">忘记密码</a>|
+                                    <a href="">遇到问题</a>
+                                </p>
+                                <p>
+                                    <span class="iconfont icon-yooxi"></span>
+                                    <span class="iconfont icon-changyonglogo30
+                                    "></span>
+                                    <span class="iconfont icon-qq"></span>
+                                </p>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 底部 -->
+    <div id="footer">
+        <div id="nav">
+            <p><a href="">华为账号和云用户空间协议</a>|<a href="">关于华为与云空间隐私声明</a>|<a href="">常见问题</a>|<a href="">Cookies</a></p>
+            <p><span>华为账号</span><span>版权所有</span><span class="glyphicon glyphicon-copyright-mark"></span><span>2012-2020</span></p>
+
+        </div>
+    </div>
+    </div>
+    <!-- 底部 -->
+
+    </div>
+    <script src="./js/jquery-1.11.0.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script>
+        var dianji = document.querySelector(".dianji");
+        $(function() {
+            var flas = true;
+            $(".dianji").click(function() {
+                console.log(flas)
+                if (flas) {
+                    flas = false;
+                    $(".hone").hide();
+                }
+                if (!flas) {
+                    console.log(flas)
+                    flas = true;
+                    $(".hone").show();
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
