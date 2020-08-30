@@ -109,7 +109,7 @@
         <input type="text" placeholder="p40  荣耀30">
         <span class="glyphicon glyphicon-search"></span>
     </div>
-
+    <!-- 轮播图 -->
     <div class="lbt">
         <img src="https://res.vmallres.com/pimages//pages/picImages/95828462689516482859.jpg" alt="">
         <img src="https://res.vmallres.com/pimages//pages/picImages/58727184389518172785.jpg" alt="">
@@ -122,6 +122,7 @@
             <span id="t1" class="glyphicon glyphicon-chevron-left"></span>
             <span id="t2" class="glyphicon glyphicon-chevron-right"></span>
         </div>
+
         <ul>
             <li class="bzd"></li>
             <li></li>
@@ -133,119 +134,236 @@
         </ul>
 
     </div>
-</div>
+
+    <div class="rjcd">
+        <ul>
+            <li>
+                <p>手机</p>
+                <span class="glyphicon glyphicon-menu-right"></span>
+            </li>
+            <li>
+                <p>笔记本</p><span class="glyphicon glyphicon-menu-right"></span></li>
+            <li>
+                <p>平板</p><span class="glyphicon glyphicon-menu-right"></span></li>
+            <li>
+                <p>智能穿戴&VR</p><span class="glyphicon glyphicon-menu-right"></span></li>
+            <li>
+                <p>智能家居</p><span class="glyphicon glyphicon-menu-right"></span></li>
+            <li>
+                <p>智慧屏</p><span class="glyphicon glyphicon-menu-right"></span></li>
+            <li>
+                <p>耳机音响</p><span class="glyphicon glyphicon-menu-right"></span></li>
+            <li>
+                <p>配件</p><span class="glyphicon glyphicon-menu-right"></span></li>
+            <li>
+                <p>生态产品</p><span class="glyphicon glyphicon-menu-right"></span></li>
+            <li>
+                <p>增值服务&其他</p><span class="glyphicon glyphicon-menu-right"></span></li>
+        </ul>
+    </div>
+    <!-- /* 轮播图下方区域 */ -->
+    <div class="grzx">
+        <!-- 第一块 -->
+        <div>
+            <img src="https://res.vmallres.com/20200731/images/echannel/misc/img_not_logged_in.png" alt="">
+            <div>
+                <p>您好！请<a href="">登录</a>/<a href="">注册</a></p>
+
+                <span><a href="">新人福利</a>
+                <a href="">会员频道</a></span>
+
+            </div>
+
+        </div>
+        <!-- 第二块 -->
+        <ul>
+            <li>
+                <span style="background: url(https://res.vmallres.com/pimages//squaredInfo/icon/5/32b46fe090fcab93c1459eae921a2119.png) no-repeat;
+                background-position-x: -20px;
+                background-position-y: -20px;"></span>
+                <a href="">企业购特惠</a></li>
+            <li>
+                <span style="background: url(https://res.vmallres.com/pimages//squaredInfo/icon/5/32b46fe090fcab93c1459eae921a2119.png) no-repeat;
+                background-position-x: -100px;
+                background-position-y: -20px;"></span>
+                <a href="">
+                会员领卷
+            </a></li>
+            <li>
+                <span style="background: url(https://res.vmallres.com/pimages//squaredInfo/icon/5/32b46fe090fcab93c1459eae921a2119.png) no-repeat;
+                background-position-x: -180px;
+                background-position-y: -20px;"></span>
+                <a href="">
+                以旧换新
+            </a></li>
+            <li>
+                <span style="background: url(https://res.vmallres.com/pimages//squaredInfo/icon/5/32b46fe090fcab93c1459eae921a2119.png) no-repeat;
+                background-position-x: -260px;
+                background-position-y: -20px;"></span>
+                <a href="">
+                P40 Pro+
+            </a></li>
+            <li>
+                <span style="background: url(https://res.vmallres.com/pimages//squaredInfo/icon/5/32b46fe090fcab93c1459eae921a2119.png) no-repeat;
+                background-position-x: -340px;
+                background-position-y: -20px;"></span>
+                <a href="">
+                华为数码
+            </a>
+            </li>
+            <li>
+                <span style="background: url(https://res.vmallres.com/pimages//squaredInfo/icon/5/32b46fe090fcab93c1459eae921a2119.png) no-repeat;
+                background-position-x: -420px;
+                background-position-y: -20px;"></span>
+                <a href="">
+                荣耀数码
+            </a></li>
+        </ul>
+        <!-- 点部分 -->
+        <div>
+            <div>
+                <h3>公告</h3>
+                <a href="">1234567</a>
+            </div>
+            <div>
+                <ul>
+                    <li><a href=""><span class="glyphicon glyphicon-picture"></span>优购码</a></li>
+                    <li>
+                        </span>
+                        <a href=""><span class="glyphicon glyphicon-thumbs-up"></span>更换电磁</a></li>
+                    <li>
+                        <a href=""><span class="glyphicon glyphicon-calendar"></span>不够保证</a></li>
+                </ul>
+
+            </div>
 
 
 
-<script>
-    var sum = 0;
-    var oDiv = document.querySelector(".lbt");
-    var oSpan = document.querySelectorAll(".lbt span");
-    var aLi = document.querySelectorAll(".lbt li");
-    var aimg = document.querySelectorAll(".lbt img");
-    console.log(oSpan)
+            <script>
+                var sum = 0;
+                var oDiv = document.querySelector(".lbt");
+                var oSpan = document.querySelectorAll(".lbt span");
+                var aLi = document.querySelectorAll(".lbt li");
+                var aimg = document.querySelectorAll(".lbt img");
+                aimg[0].style.opacity = "1";
 
-    function move() {
-        sum += 1;
-        if (sum == aimg.length) {
-            sum = 0;
-        }
+                function move() {
+                    sum += 1;
+                    if (sum == aimg.length) {
+                        sum = 0;
+                    }
 
-        for (let i = 0; i < aimg.length; i++) {
-            //所有的照片都为透明，用move改变透明度
-            startMove(aimg[i], {
-                opacity: 0
-            })
-            aLi[i].className = "";
-            for (let j = 0; j < aimg.length; j++) {
-                //2张照片进行透明切换
-                startMove(aimg[sum], {
-                    opacity: 100
-                })
-                aLi[sum].className = "bzd";
-            }
-        }
-    }
-
-
-    //自动播放
-    clearInterval(timer);
-    var timer = setInterval(function() {
-        move();
-    }, 3000)
-
-    //点击左按钮切换图片
-    oSpan[0].onclick = function() {
-            //跟正常走法相反，所有边界也相反
-            if (sum == 0) {
-                sum = aimg.length;
-            }
-            //向后走，减减
-            sum--;
-            for (let i = 0; i < aimg.length; i++) {
-                //所有的照片都为透明，用move改变透明度
-                startMove(aimg[i], {
-                    opacity: 0
-                })
-                aLi[i].className = "";
-                for (let j = 0; j < aimg.length; j++) {
-                    startMove(aimg[sum], {
-                        opacity: 100
-                    })
-                    aLi[sum].className = "bzd";
-                }
-            }
-        }
-        //点击右键切换图片
-    oSpan[1].onclick = function() {
-        move();
-    }
-
-
-    //小圆点
-    //鼠标移入
-    for (let k = 0; k < aLi.length; k++) {
-        aLi[k].onmouseover = function() {
-                for (let a = 0; a < aLi.length; a++) {
-                    //先把所有的清除
-                    aLi[a].className = "";
-                    //鼠标移入的圆点添加样式
-                    aLi[k].className = "bzd";
-                    //改变点击的透明度
                     for (let i = 0; i < aimg.length; i++) {
-                        //改变移入的照片与之前照片的透明度，也可以改称为移入的照片和移入照片上一张，那样要设置边界
+                        //所有的照片都为透明，用move改变透明度
                         startMove(aimg[i], {
                             opacity: 0
                         })
+                        aLi[i].className = "";
                         for (let j = 0; j < aimg.length; j++) {
-                            startMove(aimg[k], {
+                            //2张照片进行透明切换
+                            startMove(aimg[sum], {
                                 opacity: 100
                             })
-
+                            aLi[sum].className = "bzd";
                         }
-                    }
-                }
-            }
-            //鼠标移除改变move里面sum值，从鼠标移除的照片开始向下走
-        aLi[k].onmouseout = function() {
-            sum = k;
-        }
-    }
-    //鼠标移入停止定时器
-    oDiv.onmouseover = function() {
-            clearInterval(timer);
-        }
-        //鼠标移除开启定时器
-    oDiv.onmouseout = function() {
-        timer = setInterval(function() {
-            move();
 
-        }, 3000)
-    }
-</script>
-<script src="./js/jquery-1.11.0.js"></script>
-<script src="./js/bootstrap.js"></script>
-<script src="./js/startmove.js"></script>
-</body>
+
+                    };
+
+                }
+
+
+                //自动播放
+                clearInterval(timer);
+                var timer = setInterval(function() {
+                    move();
+                }, 3000)
+
+                //点击左按钮切换图片
+                oSpan[0].onclick = function() {
+                        //跟正常走法相反，所有边界也相反
+                        if (sum == 0) {
+                            sum = aimg.length;
+                        }
+                        //向后走，减减
+                        sum--;
+                        for (let i = 0; i < aimg.length; i++) {
+                            //所有的照片都为透明，用move改变透明度
+                            startMove(aimg[i], {
+                                opacity: 0
+                            })
+
+
+
+                            aLi[i].className = "";
+                            for (let j = 0; j < aimg.length; j++) {
+                                startMove(aimg[sum], {
+                                    opacity: 100
+                                })
+
+
+
+                                aLi[sum].className = "bzd";
+                            }
+                        }
+                        /*  aSpan.style.backgroundImage = "url" + "(" + "'" + (aimg[sum].src) + "'" + ")"; */
+                    }
+                    //点击右键切换图片
+                oSpan[1].onclick = function() {
+                    move();
+                }
+
+
+                //小圆点
+                //鼠标移入
+                for (let k = 0; k < aLi.length; k++) {
+                    aLi[k].onmouseover = function() {
+                            for (let a = 0; a < aLi.length; a++) {
+                                //先把所有的清除
+                                aLi[a].className = "";
+                                //鼠标移入的圆点添加样式
+                                aLi[k].className = "bzd";
+                                /*   aSpan.style.backgroundImage = "url" + "(" + "'" + (aimg[k].src) + "'" + ")"; */
+                                //改变点击的透明度
+
+                                for (let i = 0; i < aimg.length; i++) {
+                                    //改变移入的照片与之前照片的透明度，也可以改称为移入的照片和移入照片上一张，那样要设置边界
+                                    startMove(aimg[i], {
+                                        opacity: 0
+                                    })
+
+                                    for (let j = 0; j < aimg.length; j++) {
+                                        startMove(aimg[k], {
+                                            opacity: 100
+                                        })
+
+                                    }
+                                }
+
+                            }
+                        }
+                        //鼠标移除改变move里面sum值，从鼠标移除的照片开始向下走
+                    aLi[k].onmouseout = function() {
+                        sum = k;
+                        aSpan.style.backgroundImage = "url" + "(" + "'" + (aimg[sum].src) + "'" + ")";
+                    }
+
+                }
+                //鼠标移入停止定时器
+                oDiv.onmouseover = function() {
+                        clearInterval(timer);
+                    }
+                    //鼠标移除开启定时器
+                oDiv.onmouseout = function() {
+                    timer = setInterval(function() {
+                        move();
+
+                    }, 3000)
+                }
+            </script>
+            <script src="./js/jquery-1.11.0.js"></script>
+            <script src="./js/bootstrap.js"></script>
+            <script src="./js/startmove.js"></script>
+            </body>
 
 </html>
