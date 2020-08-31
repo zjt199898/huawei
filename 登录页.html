@@ -203,6 +203,7 @@
         flex-direction: column;
         justify-content: center;
         margin-top: 20px;
+        height: 80px !important;
     }
     
     .show div p {
@@ -263,6 +264,13 @@
         color: black !important;
         opacity: .3;
     }
+    
+    .dong {
+        position: absolute;
+        top: -20px;
+        left: 100px;
+        color: red;
+    }
 </style>
 
 <body>
@@ -292,23 +300,28 @@
                     <!-- 中间竖杆 -->
 
                     <!-- 右边登录列表 -->
+
                     <div class="dl">
                         <!-- 第一个 -->
+
+                        <p class="dong"></p>
                         <div class="show">
                             <li>
                                 <input type="text" placeholder="手机号/邮箱地址/华为号">
                             </li>
+
                             <li>
-                                <input type="text" placeholder="密码">
+                                <input type="password" placeholder="密码">
                                 <span class="glyphicon glyphicon-eye-close"></span>
                             </li>
+
                             <span class="dianji">短信验证码登录</span>
                             <input type="button" value="登录">
 
-                            <div class="hone">
+                            <div class="hind">
 
                                 <p>
-                                    <a href="">注册</a>|
+                                    <a href="注册页面.html">注册</a>|
                                     <a href="">忘记密码</a>|
                                     <a href="">遇到问题</a>
                                 </p>
@@ -345,20 +358,37 @@
     <script src="./js/jquery-1.11.0.js"></script>
     <script src="./js/bootstrap.js"></script>
     <script>
-        var dianji = document.querySelector(".dianji");
+        var Div = document.querySelector(".hind");
+        console.log(Div.style.display)
         $(function() {
-            var flas = true;
             $(".dianji").click(function() {
-                console.log(flas)
-                if (flas) {
-                    flas = false;
-                    $(".hone").hide();
+                $("#box input").eq(0).val("");
+                $("#box input").eq(1).val("");
+                $(".dong").html("");
+                if (Div.style.opacity == "100") {
+                    Div.style.opacity = "0";
+                    $(this).html("密码登录");
+                    $("h3").html("短信验证码登录");
+                } else {
+                    Div.style.opacity = "100";
+                    $(this).html("短信验证码登录");
+                    $("h3").html("华为账号登录");
                 }
-                if (!flas) {
-                    console.log(flas)
-                    flas = true;
-                    $(".hone").show();
+
+            })
+            var str = [/^$/, /^1(3|4|5|6|7|8|9)\d{9}$/, /^\w+@\w+(\.\w+)+$/, /^[a-zA-Z0-9_-]{6,16}$/];
+            $("#box input").eq(0).change(function() {
+                var sun = $("#box input").eq(0).val();
+                if (!str[1].test(sun)) {
+
+                    $(".dong").html("手机号格式错误!")
+                } else {
+                    $(".dong").html("");
                 }
+            })
+            $("#box input").eq(2).click(function() {
+                /*   if () {} */
+                location.href = "首页.html";
             })
         })
     </script>

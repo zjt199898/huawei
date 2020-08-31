@@ -1,0 +1,468 @@
+@charset "utf-8";
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+}
+
+li {
+    list-style: none;
+}
+
+#box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    min-width: 1200px;
+}
+
+
+/* 头部导航条 */
+
+.nav {
+    width: 100%;
+    height: 36px;
+    background: black;
+    display: flex;
+    justify-content: center;
+    line-height: 36px;
+    min-width: 1200px;
+}
+
+.nav div {
+    width: 1200px;
+    height: 36px;
+    color: #cecece;
+    font-size: 12px;
+}
+
+.nav ul li a {
+    color: #cecece;
+    text-decoration: none;
+}
+
+.nav ul li span {
+    width: 1px;
+    color: 10px;
+}
+
+.left {
+    height: 36px;
+    float: left;
+    line-height: 36px;
+    margin-left: -30px;
+}
+
+.left li {
+    float: left;
+}
+
+.right {
+    height: 36px;
+    float: right;
+    line-height: 36px;
+}
+
+.right li a {
+    margin-left: 4px;
+    line-height: 36px;
+}
+
+.right li {
+    float: right;
+    height: 36px;
+    cursor: pointer;
+}
+
+.right li span {
+    margin-left: 3px;
+}
+
+.right :nth-child(2) {
+    width: 70px;
+}
+
+.right :nth-child(7) {
+    width: 50px;
+    margin-top: 2px;
+}
+
+
+/* 头部 */
+
+.header {
+    width: 1200px;
+    height: 74px;
+    display: flex;
+    align-items: center;
+    min-width: 1200px;
+}
+
+.header a img {
+    display: block;
+    width: 205px;
+    height: 36px;
+}
+
+.header :nth-child(2) li {
+    float: left;
+    margin-right: 20px;
+}
+
+.header :nth-child(2) li img {
+    display: block;
+    width: 74px;
+    height: 24px;
+}
+
+.header :nth-child(2) li a {
+    color: #333;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.header ul {
+    margin-right: 262px;
+}
+
+.header input {
+    height: 30px;
+    float: right;
+    outline: none;
+}
+
+.header input:nth-child(3) {
+    background: #cecece;
+    width: 205px;
+    border: none;
+    border-radius: 10px 0 0 10px;
+    margin-top: 2px;
+}
+
+.header span:nth-child(4) {
+    text-align: center;
+    line-height: 30px;
+    width: 35px;
+    height: 30px;
+    font-size: 20px;
+    color: #333;
+    background: #cecece;
+    border: none;
+    border-radius: 0 10px 10px 0;
+}
+
+
+/* 轮播图 */
+
+.lbt {
+    width: 100%;
+    height: 550px;
+    position: absolute;
+    top: 74px;
+    overflow: hidden;
+    min-width: 1200px;
+}
+
+#box .lbt img {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 550px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+#ttt {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+#t1 {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    line-height: 60px;
+    background: #cecece;
+    z-index: 1;
+    cursor: pointer;
+    border-radius: 50%;
+    opacity: .5;
+}
+
+#t2 {
+    opacity: .5;
+    font-size: 18px;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 40%;
+    right: 18%;
+    color: white;
+    text-align: center;
+    line-height: 60px;
+    background: #cecece;
+    z-index: 1;
+    cursor: pointer;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#box .lbt ul {
+    position: absolute;
+    bottom: 100px;
+    left: 68%;
+    z-index: 100;
+}
+
+#box .lbt ul li {
+    width: 20px;
+    height: 20px;
+    color: black;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    border-radius: 50%;
+    margin: 10px;
+    float: left;
+    cursor: pointer;
+    border: 1px solid white;
+    z-index: 100;
+}
+
+#box .lbt .bzd {
+    background: white;
+}
+
+
+/* 二级导航 */
+
+.rjcd {
+    width: 1200px;
+}
+
+#box .rjcd ul {
+    margin-top: 30px;
+    width: 200px;
+    height: 440px;
+    z-index: 11;
+    color: #333;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    opacity: .9999;
+}
+
+.rjcd ul li {
+    width: 100%;
+    height: 44px;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    color: #333;
+    opacity: .5;
+    cursor: pointer;
+}
+
+.rjcd ul li p {
+    margin-left: 10px;
+    line-height: 44px;
+}
+
+.rjcd ul li span {
+    margin-right: 10px;
+    line-height: 44px;
+}
+
+
+/* 轮播图下方区域 */
+
+.grzx {
+    margin-top: 10px;
+    width: 1200px;
+    min-width: 1200px;
+    background: white;
+    border-radius: 20px;
+    height: 88px;
+    z-index: 11;
+    opacity: .9;
+    display: flex;
+    align-items: center;
+}
+
+.grzx div:nth-child(1) {
+    width: 270px;
+    height: 52px;
+    border-right: 1px solid #cecece;
+}
+
+.grzx div:nth-child(1) img {
+    display: block;
+    width: 52px;
+    height: 52px;
+    float: left;
+    margin-left: 20px;
+}
+
+.grzx div:nth-child(1) div {
+    float: right;
+    font-size: 14px;
+    color: #999999;
+    width: 148px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+.grzx div:nth-child(1) div p {
+    margin-left: 10px;
+}
+
+.grzx div:nth-child(1) div a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+
+/* .grzx div:nth-child(1) div div {
+   
+} */
+
+.grzx div:nth-child(1) div span {
+    display: block;
+    width: 148px;
+    height: 22px;
+}
+
+.grzx div:nth-child(1) div span a:nth-child(1) {
+    float: left;
+    display: block;
+    text-align: center;
+    line-height: 22px;
+    width: 60px;
+    height: 22px;
+    border: 1px solid red;
+    color: red;
+    border-radius: 5px;
+}
+
+.grzx div:nth-child(1) div span a:nth-child(2) {
+    float: right;
+    display: block;
+    text-align: center;
+    line-height: 22px;
+    width: 60px;
+    height: 22px;
+    background: #595454;
+    color: #fde4b3;
+    border-radius: 5px;
+}
+
+
+/* 第二部分 */
+
+.grzx ul {
+    width: 660px;
+    height: 64px;
+}
+
+.grzx ul li {
+    width: 104px;
+    height: 64px;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.grzx ul li span {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.grzx ul li a {
+    font-size: 12px;
+    text-decoration: none;
+    color: #777777;
+}
+
+
+/* disanbufen */
+
+.grzx div:nth-child(3) {
+    width: 267px;
+    height: 88px;
+    border-left: 1px solid #cecece;
+    display: flex;
+    flex-direction: column;
+}
+
+.grzx div:nth-child(3) div {
+    width: 266px;
+    height: 44px;
+    border-right: none;
+}
+
+.grzx div:nth-child(3) div h3 {
+    width: 28px;
+    height: 44px;
+    font-size: 14px;
+    line-height: 4px;
+    font-weight: bold;
+    margin-left: 20px;
+    float: left;
+}
+
+.grzx div:nth-child(3) div a {
+    float: right;
+    display: block;
+    width: 190px;
+    height: 43px;
+    text-align: center;
+    text-decoration: none;
+    color: #777777;
+    line-height: 43px;
+}
+
+.grzx div:nth-child(3) ul {
+    width: 262px;
+    height: 44px;
+    border-top: solid 1px #cecece;
+}
+
+.grzx div:nth-child(3) ul li {
+    width: 86px !important;
+    height: 42px !important;
+}
+
+.grzx div:nth-child(3) ul li span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    color: 20px;
+    border-radius: none;
+    background: white;
+}
+
+.grzx div:nth-child(3) ul li a {
+    width: 100%;
+    height: 100%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -22,6 +22,14 @@
     }
     /* 头部 */
     
+    #box span {
+        cursor: pointer;
+    }
+    
+    #box a {
+        text-decoration: none !important;
+    }
+    
     #header {
         width: 100%;
         height: 40px;
@@ -102,7 +110,7 @@
     
     #jz li {
         margin-top: 20px;
-        background: #cecece;
+        background: #F5f5f5;
         height: 58px;
     }
     
@@ -154,7 +162,7 @@
         float: right;
         height: 100%;
         border: none;
-        background: #cecece;
+        background: #F5f5f5;
         outline: none;
     }
     
@@ -163,7 +171,7 @@
         outline: none;
         height: 100%;
         border: none;
-        background: #cecece;
+        background: #F5f5f5;
         line-height: 38px;
     }
     
@@ -194,7 +202,7 @@
         position: absolute;
         right: -20px;
         line-height: 58px !important;
-        color: #cecece !important;
+        color: #F5f5f5 !important;
     }
     /* 隐藏 */
     
@@ -210,7 +218,7 @@
     
     #jz1 li {
         margin-top: 20px;
-        background: #cecece;
+        background: #F5f5f5;
         height: 58px;
     }
     
@@ -299,8 +307,10 @@
                         </h2>
                         <div class="text-center">
                             <p>已用账号，</p>
-                            <div>去登陆
+                            <div><a href="登录页.html">
+                                去登陆
                                 <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
                             </div>
                         </div>
                     </div>
@@ -316,23 +326,26 @@
                                 <span class="glyphicon glyphicon-triangle-bottom"></span>|
                             </div>
 
-                            <input type="text" placeholder="请输入密码">
+                            <input type="text" placeholder="请输入手机号">
                         </li>
                     </div>
+                    <p></p>
                     <ul class="list-group">
                         <li class="list-group-item">
                             <input type="text" placeholder="短信验证码">
                             <span id="blue">获取验证码</span>
                         </li>
+                        <p></p>
                         <li class="list-group-item">
-                            <input type="text" placeholder="密码">
+                            <input type="password" placeholder="密码">
                             <span class="glyphicon glyphicon-eye-close"></span>
                         </li>
+                        <p></p>
                         <li class="list-group-item">
-                            <input type="text" placeholder="确认密码">
+                            <input type="password" placeholder="确认密码">
                             <span class="glyphicon glyphicon-eye-close"></span>
                         </li>
-
+                        <p></p>
                         <li class="list-group-item rq">
                             <span class="glyphicon glyphicon-exclamation-sign rq1"></span>
                         </li>
@@ -349,11 +362,14 @@
                         </h2>
                         <div class="text-center">
                             <p>已用账号，</p>
-                            <div>去登陆
+                            <div><a href="登录页.html">
+                                去登陆
                                 <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
                             </div>
                         </div>
                     </div>
+
                     <div>
                         <li class="list-group-item diqu">
                             <p>国家/地区</p>
@@ -365,20 +381,23 @@
                             <input type="text" placeholder="邮箱地址">
                         </li>
                     </div>
+                    <p></p>
                     <ul class="list-group">
                         <li class="list-group-item">
                             <input type="text" placeholder="短信验证码">
                             <span id="blue">获取验证码</span>
                         </li>
+                        <p></p>
                         <li class="list-group-item">
-                            <input type="text" placeholder="密码">
+                            <input type="password" placeholder="密码">
                             <span class="glyphicon glyphicon-eye-close"></span>
                         </li>
+                        <p></p>
                         <li class="list-group-item">
-                            <input type="text" placeholder="确认密码">
-                            <span class="glyphicon glyphicon-eye-close"></span>
+                            <input type="password" id="myinput" placeholder="确认密码">
+                            <span class="glyphicon glyphicon-eye-close" onclick="changetype()"></span>
                         </li>
-
+                        <p></p>
                         <li class="list-group-item rq">
                             <span class="glyphicon glyphicon-exclamation-sign rq1"></span>
                         </li>
@@ -415,17 +434,118 @@
                 $("#jz").show();
                 $("#jz1").hide();
             })
-        })
-        $(".dj .btn").eq(1).click(function() {
 
-            $(".dj .btn").eq(1).css({
-                "background": "#cecece"
+            $(".dj .btn").eq(1).click(function() {
+
+                $(".dj .btn").eq(1).css({
+                    "background": "#cecece"
+                });
+                $(".dj .btn").eq(0).css({
+                    "background": "white"
+                });
+                $("#jz1").show();
+                $("#jz").hide();
+
+            })
+            var str = [/^$/, /^1(3|4|5|6|7|8|9)\d{9}$/, /^\w+@\w+(\.\w+)+$/, /^[a-zA-Z0-9_-]{6,16}$/];
+            console.log($("#jz p").eq(0))
+            $("#jz input").eq(0).change(function() {
+                var sun = $("#jz input").eq(0).val();
+                if (!str[1].test(sun)) {
+
+                    $("#jz p").eq(2).html("手机号错误")
+                } else {
+                    $("#jz p").eq(2).html("");
+                }
+            })
+            var sum;
+            $("#jz input").eq(2).change(function() {
+                sum = $("#jz input").eq(2).val();
+
+                if (/^\s+$/gi.test(sum) || sum.length == 0) {
+                    $("#jz p").eq(4).html("密码不能为空")
+                }
+                if (!str[3].test(sum) && !/^\s+$/gi.test(sum) || sum.length == 0) {
+
+                    $("#jz p").eq(4).html("至少包含8个字符")
+                }
+                if (str[3].test(sum)) {
+                    $("#jz p").eq(4).html("");
+                }
+            })
+            $("#jz input").eq(3).change(function() {
+
+                if ($("#jz input").eq(3).val() != sum) {
+                    $("#jz p").eq(5).html("密码与确认密码不一致");
+                }
+                if (/^\s+$/gi.test($("#jz input").eq(3).val()) || $("#jz input").eq(3).val().length == 0) {
+                    $("#jz p").eq(5).html("密码不能为空")
+                }
+                if ($("#jz input").eq(3).val() == sum) {
+                    $("#jz p").eq(5).html("");
+                }
+            })
+            $("#jz p").eq(2).css({
+                "color": "red"
             });
-            $(".dj .btn").eq(0).css({
-                "background": "white"
+            $("#jz p").eq(4).css({
+                "color": "red"
             });
-            $("#jz1").show();
-            $("#jz").hide();
+            $("#jz p").eq(5).css({
+                "color": "red"
+            });
+            /* 第二个 */
+
+
+            $("#jz1 input").eq(0).change(function() {
+                var sun = $("#jz input").eq(0).val();
+                if (!str[2].test(sun)) {
+
+                    $("#jz1 p").eq(2).html("邮箱地址错误")
+                } else {
+                    $("#jz1 p").eq(2).html("");
+                }
+            })
+            var summ;
+            $("#jz1 input").eq(2).change(function() {
+                summ = $("#jz1 input").eq(2).val();
+
+                if (/^\s+$/gi.test(summ) || summ.length == 0) {
+                    $("#jz1 p").eq(4).html("密码不能为空")
+                }
+                if (!str[3].test(summ) && !/^\s+$/gi.test(summ) || summ.length == 0) {
+
+                    $("#jz1 p").eq(4).html("至少包含8个字符")
+                }
+                if (str[3].test(summ)) {
+                    $("#jz1 p").eq(4).html("");
+                }
+            })
+            $("#jz1 input").eq(3).change(function() {
+
+                if ($("#jz1 input").eq(3).val() != summ) {
+                    $("#jz1 p").eq(5).html("密码与确认密码不一致");
+                }
+                if (/^\s+$/gi.test($("#jz1 input").eq(3).val()) || $("#jz1 input").eq(3).val().length == 0) {
+                    $("#jz1 p").eq(5).html("密码不能为空")
+                }
+                if ($("#jz1 input").eq(3).val() == summ) {
+                    $("#jz1 p").eq(5).html("");
+                }
+            })
+            $("#jz1 p").eq(2).css({
+                "color": "red"
+            });
+            $("#jz1 p").eq(4).css({
+                "color": "red"
+            });
+            $("#jz1 p").eq(5).css({
+                "color": "red"
+            });
+            console.log($("#jz1 span").eq(3))
+                /*  changetype(function() {
+                      $("myinput").attr('password', 'text')
+                  }) */
 
         })
     </script>
