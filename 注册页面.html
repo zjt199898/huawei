@@ -105,7 +105,6 @@
         right: 0;
         bottom: 0;
         margin: auto;
-        display: none;
     }
     
     #jz li {
@@ -204,6 +203,22 @@
         line-height: 58px !important;
         color: #F5f5f5 !important;
     }
+    
+    .yzm {
+        width: 100px;
+        height: 100%;
+        background: #cecece;
+        color: red;
+        font-style: italic;
+        font-weight: bold;
+        font-size: 20px;
+        position: absolute;
+        right: 100px;
+        line-height: 58px;
+        text-align: center;
+        top: 0;
+        display: none;
+    }
     /* 隐藏 */
     
     #jz1 {
@@ -214,6 +229,7 @@
         right: 0;
         bottom: 0;
         margin: auto;
+        display: none;
     }
     
     #jz1 li {
@@ -333,6 +349,7 @@
                     <ul class="list-group">
                         <li class="list-group-item">
                             <input type="text" placeholder="短信验证码">
+                            <p class="yzm"></p>
                             <span id="blue">获取验证码</span>
                         </li>
                         <p></p>
@@ -347,7 +364,7 @@
                         </li>
                         <p></p>
                         <li class="list-group-item rq">
-                            <span class="glyphicon glyphicon-exclamation-sign rq1"></span>
+                            <span class="glyphicon glyphicon-exclamation-sign rq1"></span> 出生日期
                         </li>
                     </ul>
                     <div class="zh">
@@ -421,7 +438,9 @@
     <script src="./js/jquery-1.11.0.js"></script>
     <script src="./js/bootstrap.js"></script>
     <script>
+        var str;
         $(function() {
+            var aaaa = 0;
             $(".dj .btn").eq(0).click(function() {
 
 
@@ -448,41 +467,102 @@
 
             })
             var str = [/^$/, /^1(3|4|5|6|7|8|9)\d{9}$/, /^\w+@\w+(\.\w+)+$/, /^[a-zA-Z0-9_-]{6,16}$/];
-            console.log($("#jz p").eq(0))
+
             $("#jz input").eq(0).change(function() {
+                $("#jz li").eq(2).css({
+                    "border": "blue"
+                })
                 var sun = $("#jz input").eq(0).val();
                 if (!str[1].test(sun)) {
 
                     $("#jz p").eq(2).html("手机号错误")
                 } else {
+                    aaaa++;
                     $("#jz p").eq(2).html("");
+                    $("#blue").click(function() {
+                        var arr = "01234567890qwertyuiopasdfghjklzxcvbnm";
+                        var str = "";
+                        for (var j = 0; j < 4; j++) {
+                            str += arr[parseInt(Math.random() * arr.length)];
+                        }
+
+                        $(".yzm").show();
+                        $(".yzm").html(str);
+                        $(this).html("60秒后重试")
+                    })
                 }
             })
             var sum;
+
+
+            /* 验证码*/
+            $("#jz input").eq(1).change(function() {
+                    console.log($("#jz input").eq(1).val(), $(".yzm").text())
+                    if ($("#jz input").eq(1).val() != $(".yzm").html()) {
+                        $("#jz p").eq(4).html("验证码错误")
+                    }
+                    if ($("#jz input").eq(1).val() == $(".yzm").html()) {
+                        $("#jz p").eq(4).html("");
+                        aaaa++;
+                        $("#blue").html("获取验证码")
+                        $(".yzm").hide();
+                    }
+
+                })
+                /* 密码 */
             $("#jz input").eq(2).change(function() {
                 sum = $("#jz input").eq(2).val();
 
                 if (/^\s+$/gi.test(sum) || sum.length == 0) {
-                    $("#jz p").eq(4).html("密码不能为空")
+                    $("#jz p").eq(5).html("密码不能为空")
                 }
                 if (!str[3].test(sum) && !/^\s+$/gi.test(sum) || sum.length == 0) {
 
-                    $("#jz p").eq(4).html("至少包含8个字符")
+                    $("#jz p").eq(5).html("至少包含8个字符")
                 }
                 if (str[3].test(sum)) {
-                    $("#jz p").eq(4).html("");
+                    aaaa++;
+                    $("#jz p").eq(5).html("");
+                }
+                if (sum == $("#jz input").eq(0).val()) {
+                    $("#jz p").eq(5).html("密码账号不能相同");
                 }
             })
             $("#jz input").eq(3).change(function() {
 
                 if ($("#jz input").eq(3).val() != sum) {
-                    $("#jz p").eq(5).html("密码与确认密码不一致");
+                    $("#jz p").eq(6).html("密码与确认密码不一致");
                 }
                 if (/^\s+$/gi.test($("#jz input").eq(3).val()) || $("#jz input").eq(3).val().length == 0) {
-                    $("#jz p").eq(5).html("密码不能为空")
+                    $("#jz p").eq(6).html("密码不能为空")
                 }
                 if ($("#jz input").eq(3).val() == sum) {
-                    $("#jz p").eq(5).html("");
+                    aaaa++;
+                    $("#jz p").eq(6).html("");
+                    if (aaaa == 4) {
+                        $(".zh input").css({
+                            "background": "blue",
+                            "color": "red"
+                        }).click(function() {
+                            console.log($("#jz input").eq(0).val(), $("#jz input").eq(2).val())
+                                /*  */
+                            $.get("http://jx.xuzhixiang.top/ap/api/reg.php", {
+                                username: $("#jz input").eq(0).val(),
+                                password: $("#jz input").eq(2).val()
+
+                            }, data => {
+                                console.log(data)
+                                if (data.code) {
+                                    alert(data.msg);
+                                    location.href = "登录页.html";
+                                } else {
+                                    alert(data.msg);
+                                }
+                            })
+                        })
+
+
+                    }
                 }
             })
             $("#jz p").eq(2).css({
@@ -494,8 +574,24 @@
             $("#jz p").eq(5).css({
                 "color": "red"
             });
+            $("#jz p").eq(6).css({
+                "color": "red"
+            });
             /* 第二个 */
+            /* 接口 */
 
+            /* console.log(str[1].test($("#jz input").eq(0).val()), $("#jz input").eq(1).val() == $(".yzm").html(), str[3].test($("#jz input").eq(2).val()), $("#jz input").eq(3).val() == $("#jz input").eq(2).val()) */
+
+            /* if (
+                str[1].test($("#jz input").eq(0).val()) &&
+                $("#jz input").eq(1).val() == $(".yzm").html() &&
+                str[3].test($("#jz input").eq(2).val()) &&
+                $("#jz input").eq(3).val() == $("#jz input").eq(2).val()
+            ) {
+                console.log("a")
+            } */
+
+            /*  */
 
             $("#jz1 input").eq(0).change(function() {
                 var sun = $("#jz input").eq(0).val();
@@ -508,6 +604,7 @@
             })
             var summ;
             $("#jz1 input").eq(2).change(function() {
+
                 summ = $("#jz1 input").eq(2).val();
 
                 if (/^\s+$/gi.test(summ) || summ.length == 0) {
@@ -542,10 +639,13 @@
             $("#jz1 p").eq(5).css({
                 "color": "red"
             });
-            console.log($("#jz1 span").eq(3))
-                /*  changetype(function() {
-                      $("myinput").attr('password', 'text')
-                  }) */
+            $("#jz1 p").eq(6).css({
+                "color": "red"
+            });
+
+
+
+
 
         })
     </script>
