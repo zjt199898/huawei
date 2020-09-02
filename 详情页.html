@@ -5,10 +5,552 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- <link rel="stylesheet" href="./css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="./css/shouye.css">
+    <!-- <link rel="stylesheet" href="./css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="./font_zh77akmk1yg/iconfont.css">
+    <script src="./js/jquery-1.11.0.js"></script>
 </head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    
+    #box {
+        width: 1200px;
+        min-width: 1200px;
+        margin: auto;
+    }
+    
+    .nav {
+        width: 100%;
+        height: 36px;
+        background: black;
+        display: flex;
+        justify-content: center;
+        line-height: 36px;
+        min-width: 1200px;
+    }
+    
+    .nav a:hover {
+        color: white;
+    }
+    
+    .nav div {
+        width: 1200px;
+        height: 36px;
+        color: #cecece;
+        font-size: 12px;
+    }
+    
+    .nav ul li a {
+        color: #cecece;
+        text-decoration: none;
+    }
+    
+    .nav ul li span {
+        width: 1px;
+        color: 10px;
+    }
+    
+    .left {
+        height: 36px;
+        float: left;
+        line-height: 36px;
+    }
+    
+    .left li {
+        float: left;
+        cursor: pointer;
+        line-height: 36px;
+        position: relative;
+    }
+    
+    .right {
+        height: 36px;
+        float: right;
+        line-height: 36px;
+    }
+    
+    .right li a {
+        margin-left: 4px;
+        line-height: 36px;
+    }
+    
+    .right li {
+        float: right;
+        height: 36px;
+        cursor: pointer;
+        position: relative;
+    }
+    /* 二级菜单a */
+    
+    .left li:last-child {
+        padding: 0 15px 0 5px;
+        text-align: center;
+    }
+    
+    .left li:last-child:hover {
+        color: red;
+        background: white;
+    }
+    
+    .left li:last-child:hover .nav-ejcaa {
+        display: block;
+    }
+    
+    .nav-ejcaa {
+        background: white;
+        width: 100px;
+        height: 140px;
+        position: absolute;
+        left: -30px;
+        bottom: -140px;
+        opacity: 99;
+        z-index: 11;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        display: none;
+    }
+    
+    .nav-ejcbb {
+        background: white;
+        width: 100px;
+        height: 140px;
+        position: absolute;
+        left: -23px;
+        bottom: -140px;
+        opacity: 99;
+        z-index: 11;
+        text-align: center;
+        display: none;
+    }
+    
+    .nav-ejcbb li {
+        text-align: center;
+        width: 100%;
+    }
+    /* .huahua {
+    margin-left: -5px;
+} */
+    
+    .huahua:hover .nav-ejcbb {
+        display: block;
+    }
+    
+    .huahua:hover {
+        background: white;
+        color: red;
+    }
+    
+    .nav-ejcaa a:hover {
+        color: red;
+    }
+    
+    .nav-ejcbb a:hover {
+        color: red;
+    }
+    
+    .nav-ejcaa li {
+        width: 100%;
+    }
+    
+    .nav-ejcaa ul li a {
+        display: block;
+        width: 100px !important;
+        color: #cecece;
+        text-align: center;
+        float: left;
+        cursor: pointer;
+    }
+    
+    .right li span {
+        margin-left: 3px;
+    }
+    
+    .right :nth-child(2) {
+        width: 70px;
+    }
+    
+    .right :nth-child(7) {
+        width: 50px;
+        margin-top: 2px;
+    }
+    /*  #box ul {
+        width: 100%;
+        height: 100%;
+    } */
+    /*  .details li {
+        float: left;
+        flex-wrap: wrap;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 400px;
+        margin: 0 50px;
+        border: solid 2px red;
+    } */
+    /*     .details li img {
+        display: block;
+        width: 300px;
+        height: 300px;
+    }
+    
+    .details li span {
+        color: red;
+    }
+    
+    .details li p:nth-child(2) {
+        color: #333;
+    }
+    
+    .details li p:nth-child(3) {
+        color: #cecece;
+        font-size: 12px;
+        margin: 10px 0;
+    } */
+    /* 展示区域 */
+    
+    .details {
+        width: 1200px;
+        min-width: 1200px;
+        height: 600px;
+        padding-top: 20px;
+    }
+    
+    .details-left {
+        width: 450px;
+        height: 450px;
+        float: left;
+    }
+    
+    .details-left img {
+        display: block;
+        width: 450px;
+        height: 450px;
+    }
+    
+    .details-right {
+        float: right;
+        width: 700px;
+    }
+    
+    .details-right p {
+        font-size: 21px;
+        color: #3a3a3a;
+        line-height: 32px;
+        margin-bottom: 10px;
+    }
+    
+    .details-right a {
+        color: red;
+    }
+    
+    .details-right-cent {
+        height: 187px;
+        background: #cecece;
+        padding-top: 10px;
+        margin: 10px 0;
+    }
+    
+    .details-right-cent div {
+        height: 30px;
+        line-height: 30px;
+    }
+    
+    .details-right-cent div span {
+        color: #ca141d;
+        font-size: 24px;
+    }
+    
+    .details ul {
+        width: 100%;
+        height: 50px;
+    }
+    
+    .details ul li {
+        width: 98px;
+        height: 40px;
+        border: 1px solid red;
+        float: left;
+        margin-right: 10px;
+        text-align: center;
+        line-height: 40px;
+        cursor: pointer;
+    }
+    
+    .details ul li:hover {
+        color: red;
+        background: #cecece;
+    }
+    
+    .details ul li:nth-child(1) {
+        border: none !important;
+    }
+    
+    .details ul li:nth-child(1):hover {
+        color: #333333 !important;
+        background: white !important;
+    }
+    
+    .details-right-bottom {
+        height: 44px;
+        width: 100%;
+        display: flex;
+    }
+    
+    .txt {
+        width: 80px;
+        outline: none;
+        font-size: 40px;
+    }
+    
+    .details-right-bottom span {
+        display: block;
+        width: 42px;
+        height: 42px;
+        font-size: 44px;
+        line-height: 42px;
+        text-align: center;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    
+    .details .btn {
+        background: #fa600c;
+        width: 176px;
+        height: 42px;
+        border: none;
+        outline: none;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+</style>
 
 <body>
-    hahaha
+    <!--   <div class="col-md-2"></div> -->
+    <div class="nav">
+        <div>
+            <ul class="text-left left">
+                <li><a href="#">首页</a><span class="iconfont icon-vertical_line"></span></li>
+                <li><a href="#">华为官网</a><span class="iconfont icon-vertical_line"></span></li>
+                <li><a href="#">荣耀官网</a><span class="iconfont icon-vertical_line"></span></li>
+                <li><a href="#">花粉俱乐部</a><span class="iconfont icon-vertical_line"></span></li>
+                <li><a href="#">v码(优选购)</a><span class="iconfont icon-vertical_line"></span></li>
+                <li><a href="#"> 企业购</a><span class="iconfont icon-vertical_line"></span></li>
+                <li><a href="#">Select Region</a><span class="iconfont icon-vertical_line"></span></li>
+                <li>更多精彩<span class="glyphicon glyphicon-chevron-down"></span>
+                    <ul class="nav-ejcaa">
+                        <li>
+                            <a href="#">EMUI</a>
+                        </li>
+                        <li>
+                            <a href="#">应用商场</a>
+                        </li>
+                        <li>
+                            <a href="#">华为终端空间</a>
+                        </li>
+                        <li>
+                            <a href="#">开发者联盟</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="right">
+
+
+
+
+                <li>
+                    购物车(0)
+                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                </li>
+                <li>
+                    手机版
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </li>
+                <li>
+                    网站导航
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <span class="iconfont icon-vertical_line"></span>
+
+                </li>
+                <li class="huahua">
+                    客服服务
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <span class="iconfont icon-vertical_line"></span>
+                    <ul class="nav-ejcbb">
+                        <li>
+                            <a href="#">EMUI</a>
+                        </li>
+                        <li>
+                            <a href="#">应用商场</a>
+                        </li>
+                        <li>
+                            <a href="#">华为终端空间</a>
+                        </li>
+                        <li>
+                            <a href="#">开发者联盟</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">我的订单</a>
+                    <span class="iconfont icon-vertical_line"></span>
+                </li>
+                <li>
+                    <a href="#">注册</a>
+                    <span class="iconfont icon-vertical_line"></span>
+                </li>
+                <li>
+                    <a href="#">请登录</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div id="box">
+        <div class="header">
+            <a href="#"><img src="https://res.vmallres.com/pimages//common/config/logo/SXppnESYv4K11DBxDFc2.png" alt=""></a>
+
+
+
+
+
+        </div>
+        <!-- <ul class="details">
+
+        </ul> -->
+        <div class="details">
+            <div class="details-left">
+                <img id="Img" src="" alt="">
+            </div>
+            <div class="details-right">
+                <p><span>11111</span>前置3200万追焦双摄 50倍潜望式变焦四摄 麒麟985 5G SoC 8GB+128GB 全网通版（亮黑色）</p>
+                <a href="">
+                    【品牌盛典】①享6期免息②整点赠不锈钢保温杯③限量赠50元花币卡④赠精美礼券|以旧换新最高补贴1000元，点击参与>>>
+                </a>
+                <div class="details-right-cent">
+                    <div>
+                        价格: <span>1111</span>
+                    </div>
+                    <div>
+                        促销：买什么都送东西！！！
+                    </div>
+                </div>
+
+                <ul>
+                    <li>选择颜色</li>
+                    <li>黑色</li>
+                    <li>白色</li>
+                    <li>紫色色</li>
+                    <li>黄色</li>
+                    <li>绿色</li>
+                </ul>
+                <div class="details-right-bottom">
+                    <span>-</span>
+                    <input class="txt" type="text" value="1">
+                    <span>+</span>
+                    <input class="btn" type="button" value="加入购物车">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        /* console.log(location.search); */
+
+        var str = location.search;
+        var arr = str.split("?");
+        arr = arr[1];
+        Number(arr);
+        //console.log(arr)
+        $.get("http://jx.xuzhixiang.top/ap/api/detail.php", {
+            id: arr
+        }, data => {
+            /* var str = "";
+
+            console.log(data.data)
+            str += `
+                    <li>
+                        <img Id="${data.data.pid}" src="${data.data.pimg}">
+                        <p>${data.data.pname}</p>
+                        <p>${data.data.pdesc}</p>
+                        <span>¥${data.data.pprice}</span>
+                        </li>
+                    `
+
+
+            $(".details").html(str); */
+            /* $(".details-left img").src("data.data.pimg"); */
+            var aImg = document.querySelector("#Img");
+            console.log(aImg, data.data.pimg)
+            aImg.src = "" + data.data.pimg;
+            $(".details-right p span").html(data.data.pname);
+            $(".details-right-cent div span").html(data.data.pprice);
+            $(".details-right-bottom span").eq(1).click(function() {
+                var sun = $(".txt").val();
+                if (sun >= 99) {
+                    sun = 98;
+                }
+                sun++;
+                $(".txt").val(sun);
+                return false;
+            })
+            $(".details-right-bottom span").eq(0).click(function() {
+                var sun = $(".txt").val();
+                sun--;
+                if (sun <= 1) {
+                    sun = 1;
+                }
+                $(".txt").val(sun);
+                return false;
+            })
+            $(".txt").change(function() {
+                if ($(".txt").val() <= 1) {
+                    $(".txt").val(1);
+                }
+                if ($(".txt").val() >= 99) {
+                    $(".txt").val(99);
+                }
+            })
+            var Id = data.data.pid
+
+            $(".btn").click(function() {
+                var Val = $(".txt").val();
+                console.log(Id, Val)
+                    /* var name =
+                        location.href = "购物车页面.html?" + Id + "/" + Val */
+                    /* location.href = "详情页.html?" + nameid */
+                $.get("http://jx.xuzhixiang.top/ap/api/add-product.php", {
+                        uid: 38559,
+                        pid: Id,
+                        pnum: Val
+                    }, data => {
+                        console.log(data)
+                    }
+
+                )
+                location.href = "购物车页面.html?" + Id
+            })
+
+        })
+    </script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/startmove.js"></script>
+    <!-- <script src="./js/swiper-bundle.m.js"></script> -->
+    <script src="./js/shuju.js"></script>
+
 </body>
 
 </html>

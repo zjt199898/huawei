@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="./css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="./css/shouye.css">
+    <!-- <link rel="stylesheet" href="./css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="./font_zh77akmk1yg/iconfont.css">
+    <script src="./js/jquery-1.11.0.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    
+    #box {
+        width: 1200px;
+        min-width: 1200px;
+        margin: auto;
+    }
+    
+    .nav {
+        width: 100%;
+        height: 36px;
+        background: black;
+        display: flex;
+        justify-content: center;
+        line-height: 36px;
+        min-width: 1200px;
+    }
+    
+    .nav a:hover {
+        color: white;
+    }
+    
+    .nav div {
+        width: 1200px;
+        height: 36px;
+        color: #cecece;
+        font-size: 12px;
+    }
+    
+    .nav ul li a {
+        color: #cecece;
+        text-decoration: none;
+    }
+    
+    .nav ul li span {
+        width: 1px;
+        color: 10px;
+    }
+    
+    .left {
+        height: 36px;
+        float: left;
+        line-height: 36px;
+    }
+    
+    .left li {
+        float: left;
+        cursor: pointer;
+        line-height: 36px;
+        position: relative;
+    }
+    
+    .right {
+        height: 36px;
+        float: right;
+        line-height: 36px;
+    }
+    
+    .right li a {
+        margin-left: 4px;
+        line-height: 36px;
+    }
+    
+    .right li {
+        float: right;
+        height: 36px;
+        cursor: pointer;
+        position: relative;
+    }
+    /* 二级菜单a */
+    
+    .left li:last-child {
+        padding: 0 15px 0 5px;
+        text-align: center;
+    }
+    
+    .left li:last-child:hover {
+        color: red;
+        background: white;
+    }
+    
+    .left li:last-child:hover .nav-ejcaa {
+        display: block;
+    }
+    
+    .nav-ejcaa {
+        background: white;
+        width: 100px;
+        height: 140px;
+        position: absolute;
+        left: -30px;
+        bottom: -140px;
+        opacity: 99;
+        z-index: 11;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        display: none;
+    }
+    
+    .nav-ejcbb {
+        background: white;
+        width: 100px;
+        height: 140px;
+        position: absolute;
+        left: -23px;
+        bottom: -140px;
+        opacity: 99;
+        z-index: 11;
+        text-align: center;
+        display: none;
+    }
+    
+    .nav-ejcbb li {
+        text-align: center;
+        width: 100%;
+    }
+    /* .huahua {
+    margin-left: -5px;
+} */
+    
+    .huahua:hover .nav-ejcbb {
+        display: block;
+    }
+    
+    .huahua:hover {
+        background: white;
+        color: red;
+    }
+    
+    .nav-ejcaa a:hover {
+        color: red;
+    }
+    
+    .nav-ejcbb a:hover {
+        color: red;
+    }
+    
+    .nav-ejcaa li {
+        width: 100%;
+    }
+    
+    .nav-ejcaa ul li a {
+        display: block;
+        width: 100px !important;
+        color: #cecece;
+        text-align: center;
+        float: left;
+        cursor: pointer;
+    }
+    
+    .right li span {
+        margin-left: 3px;
+    }
+    
+    .right :nth-child(2) {
+        width: 70px;
+    }
+    
+    .right :nth-child(7) {
+        width: 50px;
+        margin-top: 2px;
+    }
+    /*  #box ul {
+        width: 100%;
+        height: 100%;
+    } */
+    
+    #zhanshi li {
+        float: left;
+        flex-wrap: wrap;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 500px;
+        margin: 0 50px;
+    }
+    
+    #zhanshi li img {
+        display: block;
+        width: 300px;
+        height: 300px;
+    }
+    
+    #zhanshi li span {
+        color: red;
+    }
+    
+    #zhanshi li p:nth-child(2) {
+        color: #333;
+    }
+    
+    #zhanshi li p:nth-child(3) {
+        color: #cecece;
+        font-size: 12px;
+        margin: 10px 0;
+    }
+</style>
+
+<body>
+    <!--   <div class="col-md-2"></div> -->
+    <div class="nav">
+        <div>
+            <ul class="text-left left">
+                <li><a href="#">首页</a><span class="iconfont icon-vertical_line"></span></li>
+                <li><a href="#">华为官网</a><span class="iconfont icon-vertical_line"></span></li>
+                <li><a href="#">荣耀官网</a><span class="iconfont icon-vertical_line"></span></li>
+                <li><a href="#">花粉俱乐部</a><span class="iconfont icon-vertical_line"></span></li>
+                <li><a href="#">v码(优选购)</a><span class="iconfont icon-vertical_line"></span></li>
+                <li><a href="#"> 企业购</a><span class="iconfont icon-vertical_line"></span></li>
+                <li><a href="#">Select Region</a><span class="iconfont icon-vertical_line"></span></li>
+                <li>更多精彩<span class="glyphicon glyphicon-chevron-down"></span>
+                    <ul class="nav-ejcaa">
+                        <li>
+                            <a href="#">EMUI</a>
+                        </li>
+                        <li>
+                            <a href="#">应用商场</a>
+                        </li>
+                        <li>
+                            <a href="#">华为终端空间</a>
+                        </li>
+                        <li>
+                            <a href="#">开发者联盟</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="right">
+
+
+
+
+                <li>
+                    购物车(0)
+                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                </li>
+                <li>
+                    手机版
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </li>
+                <li>
+                    网站导航
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <span class="iconfont icon-vertical_line"></span>
+
+                </li>
+                <li class="huahua">
+                    客服服务
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <span class="iconfont icon-vertical_line"></span>
+                    <ul class="nav-ejcbb">
+                        <li>
+                            <a href="#">EMUI</a>
+                        </li>
+                        <li>
+                            <a href="#">应用商场</a>
+                        </li>
+                        <li>
+                            <a href="#">华为终端空间</a>
+                        </li>
+                        <li>
+                            <a href="#">开发者联盟</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">我的订单</a>
+                    <span class="iconfont icon-vertical_line"></span>
+                </li>
+                <li>
+                    <a href="#">注册</a>
+                    <span class="iconfont icon-vertical_line"></span>
+                </li>
+                <li>
+                    <a href="#">请登录</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div id="box">
+        <div class="header">
+            <a href="#"><img src="https://res.vmallres.com/pimages//common/config/logo/SXppnESYv4K11DBxDFc2.png" alt=""></a>
+
+
+
+
+
+        </div>
+        <ul id="zhanshi">
+
+        </ul>
+    </div>
+    <script>
+        /*取数据 */
+
+        /* console.log(i) */
+        /*  var arr = [];
+
+
+         for (let i = 286007; i < 286024; i++) {
+             $.get("http://jx.xuzhixiang.top/ap/api/detail.php", {
+                 id: i
+             }, data => {
+                 arr.push(data.data);
+                 console.log(arr[0].pname);
+
+             })
+         }
+         console.log(arr) */
+
+        $.get("http://jx.xuzhixiang.top/ap/api/productlist.php", {
+            uid: 38559,
+            pagesize: 17
+        }, data => {
+            var str = "";
+            $.each(data.data, function(i) {
+                //console.log(data.data)
+                str += `
+                    <li>
+                        <img Id="${data.data[i].pid}" src="${data.data[i].pimg}">
+                        <p>${data.data[i].pname}</p>
+                        <p>${data.data[i].pdesc}</p>
+                        <span>¥${data.data[i].pprice}</span>
+                        </li>
+                    `
+
+            })
+            $("#zhanshi").html(str);
+            $("#zhanshi img").each(function(i) {
+                $("#zhanshi img").eq(i).click(function() {
+                    console.log("a")
+                    console.log($("#zhanshi img").eq(i).attr("Id"));
+                    var nameid = $("#zhanshi img").eq(i).attr("Id");
+                    location.href = "详情页.html?" + nameid
+                })
+
+            })
+        })
+    </script>
+
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/startmove.js"></script>
+    <!-- <script src="./js/swiper-bundle.m.js"></script> -->
+    <script src="./js/shuju.js"></script>
+</body>
+
+</html>

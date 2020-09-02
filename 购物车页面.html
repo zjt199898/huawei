@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="./css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="./css/shouye.css">
+    <!-- <link rel="stylesheet" href="./css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="./font_zh77akmk1yg/iconfont.css">
+    <script src="./js/jquery-1.11.0.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    
+    #box {
+        width: 1200px;
+        min-width: 1200px;
+        margin: auto;
+    }
+    
+    .nav {
+        width: 100%;
+        height: 36px;
+        background: black;
+        display: flex;
+        justify-content: center;
+        line-height: 36px;
+        min-width: 1200px;
+    }
+    
+    .nav a:hover {
+        color: white;
+    }
+    
+    .nav div {
+        width: 1200px;
+        height: 36px;
+        color: #cecece;
+        font-size: 12px;
+    }
+    
+    .nav ul li a {
+        color: #cecece;
+        text-decoration: none;
+    }
+    
+    .nav ul li span {
+        width: 1px;
+        color: 10px;
+    }
+    
+    .left {
+        height: 36px;
+        float: left;
+        line-height: 36px;
+    }
+    
+    .left li {
+        float: left;
+        cursor: pointer;
+        line-height: 36px;
+        position: relative;
+    }
+    
+    .right {
+        height: 36px;
+        float: right;
+        line-height: 36px;
+    }
+    
+    .right li a {
+        margin-left: 4px;
+        line-height: 36px;
+    }
+    
+    .right li {
+        float: right;
+        height: 36px;
+        cursor: pointer;
+        position: relative;
+    }
+    /* 二级菜单a */
+    
+    .left li:last-child {
+        padding: 0 15px 0 5px;
+        text-align: center;
+    }
+    
+    .left li:last-child:hover {
+        color: red;
+        background: white;
+    }
+    
+    .left li:last-child:hover .nav-ejcaa {
+        display: block;
+    }
+    
+    .nav-ejcaa {
+        background: white;
+        width: 100px;
+        height: 140px;
+        position: absolute;
+        left: -30px;
+        bottom: -140px;
+        opacity: 99;
+        z-index: 11;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        display: none;
+    }
+    
+    .nav-ejcbb {
+        background: white;
+        width: 100px;
+        height: 140px;
+        position: absolute;
+        left: -23px;
+        bottom: -140px;
+        opacity: 99;
+        z-index: 11;
+        text-align: center;
+        display: none;
+    }
+    
+    .nav-ejcbb li {
+        text-align: center;
+        width: 100%;
+    }
+    /* .huahua {
+    margin-left: -5px;
+} */
+    
+    .huahua:hover .nav-ejcbb {
+        display: block;
+    }
+    
+    .huahua:hover {
+        background: white;
+        color: red;
+    }
+    
+    .nav-ejcaa a:hover {
+        color: red;
+    }
+    
+    .nav-ejcbb a:hover {
+        color: red;
+    }
+    
+    .nav-ejcaa li {
+        width: 100%;
+    }
+    
+    .nav-ejcaa ul li a {
+        display: block;
+        width: 100px !important;
+        color: #cecece;
+        text-align: center;
+        float: left;
+        cursor: pointer;
+    }
+    
+    .right li span {
+        margin-left: 3px;
+    }
+    
+    .right :nth-child(2) {
+        width: 70px;
+    }
+    
+    .right :nth-child(7) {
+        width: 50px;
+        margin-top: 2px;
+    }
+    /*  #box ul {
+        width: 100%;
+        height: 100%;
+    } */
+    /*  .details li {
+        float: left;
+        flex-wrap: wrap;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 400px;
+        margin: 0 50px;
+        border: solid 2px red;
+    } */
+    /*     .details li img {
+        display: block;
+        width: 300px;
+        height: 300px;
+    }
+    
+    .details li span {
+        color: red;
+    }
+    
+    .details li p:nth-child(2) {
+        color: #333;
+    }
+    
+    .details li p:nth-child(3) {
+        color: #cecece;
+        font-size: 12px;
+        margin: 10px 0;
+    } */
+    
+    .cart-top {
+        width: 1200px;
+        height: 40px;
+        background: #cecece;
+    }
+    
+    .cart-top span {
+        display: block;
+        float: left;
+        width: 199px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+    }
+    /* .cart div span:nth-child(5) {
+        text-align: left !important;
+    } */
+    
+    .cart-top span:nth-child(5) p {
+        float: right;
+        margin-right: 40px;
+        color: red;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    
+    .cart {
+        width: 1200px;
+        min-width: 1200px;
+        min-height: 1000px;
+    }
+    
+    .cart ul {
+        width: 1198px;
+        height: 100px;
+        border: solid 1px red;
+        margin: 20px 0;
+    }
+    
+    .cart ul li {
+        width: 199px;
+        height: 100px;
+        float: left;
+        line-height: 100px;
+    }
+    
+    .cart ul li input {
+        margin-left: 30px;
+    }
+    
+    .cart ul li img {
+        display: block;
+        width: 100px;
+        height: 100px;
+        float: right;
+        margin-right: 50px;
+    }
+    /* 展示区域 */
+    
+    .cart ul li:nth-child(2) {
+        text-align: center;
+    }
+    
+    .cart ul li:nth-child(3) {
+        text-align: center;
+    }
+    
+    .cart ul li:nth-child(4) {
+        text-align: center;
+    }
+    
+    .cart ul li:nth-child(4) p:nth-child(1) {
+        margin-left: 30px;
+        font-size: 20px;
+        font-weight: bold;
+        float: left;
+        cursor: pointer;
+    }
+    
+    .cart ul li:nth-child(4) p:nth-child(3) {
+        margin-right: 30px;
+        font-size: 20px;
+        font-weight: bold;
+        float: right;
+        cursor: pointer;
+    }
+    /*  .cart ul li:nth-child(4)  {
+        width: 100px;
+        height: 100px;
+    } */
+    
+    .cart ul li:nth-child(5) {
+        text-align: center;
+    }
+    
+    .cart ul li:nth-child(6) span {
+        display: block;
+        width: 60px;
+        height: 30px;
+        background: blue;
+        cursor: pointer;
+        border-radius: 10px;
+        color: red;
+        line-height: 30px !important;
+    }
+    
+    .cart ul li:nth-child(6) {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+
+<body>
+    <!--   <div class="col-md-2"></div> -->
+    <div class="nav">
+        <div>
+            <ul class="text-left left">
+                <li><a href="#">首页</a><span class="iconfont icon-vertical_line"></span></li>
+                <li><a href="#">华为官网</a><span class="iconfont icon-vertical_line"></span></li>
+                <li><a href="#">荣耀官网</a><span class="iconfont icon-vertical_line"></span></li>
+                <li><a href="#">花粉俱乐部</a><span class="iconfont icon-vertical_line"></span></li>
+                <li><a href="#">v码(优选购)</a><span class="iconfont icon-vertical_line"></span></li>
+                <li><a href="#"> 企业购</a><span class="iconfont icon-vertical_line"></span></li>
+                <li><a href="#">Select Region</a><span class="iconfont icon-vertical_line"></span></li>
+                <li>更多精彩<span class="glyphicon glyphicon-chevron-down"></span>
+                    <ul class="nav-ejcaa">
+                        <li>
+                            <a href="#">EMUI</a>
+                        </li>
+                        <li>
+                            <a href="#">应用商场</a>
+                        </li>
+                        <li>
+                            <a href="#">华为终端空间</a>
+                        </li>
+                        <li>
+                            <a href="#">开发者联盟</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="right">
+
+
+
+
+                <li>
+                    购物车(0)
+                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                </li>
+                <li>
+                    手机版
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </li>
+                <li>
+                    网站导航
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <span class="iconfont icon-vertical_line"></span>
+
+                </li>
+                <li class="huahua">
+                    客服服务
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <span class="iconfont icon-vertical_line"></span>
+                    <ul class="nav-ejcbb">
+                        <li>
+                            <a href="#">EMUI</a>
+                        </li>
+                        <li>
+                            <a href="#">应用商场</a>
+                        </li>
+                        <li>
+                            <a href="#">华为终端空间</a>
+                        </li>
+                        <li>
+                            <a href="#">开发者联盟</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">我的订单</a>
+                    <span class="iconfont icon-vertical_line"></span>
+                </li>
+                <li>
+                    <a href="#">注册</a>
+                    <span class="iconfont icon-vertical_line"></span>
+                </li>
+                <li>
+                    <a href="#">请登录</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div id="box">
+        <div class="header">
+            <a href="#"><img src="https://res.vmallres.com/pimages//common/config/logo/SXppnESYv4K11DBxDFc2.png" alt=""></a>
+
+
+
+
+
+        </div>
+        <div class="cart-top">
+            <span>
+                <input type="checkbox" id="btn">
+    全选
+</span>
+            <span>
+    商品
+</span>
+            <span>
+   单价
+</span>
+            <span>
+   数量
+</span>
+            <span>
+    总价: <p>0</p>
+</span>
+            <span>
+    操作
+</span>
+
+        </div>
+        <div class="cart">
+            <!--   <ul>
+                <li><input type="checkbox" id="btn"><img src="./img/11.png" alt=""></li>
+                <li>1</li>
+                <li>2</li>
+                <li>
+                    <p>-</p>
+                    <span>
+                    11233
+                    </span>
+                    <p>+</p>
+                </li>
+                <li>4</li>
+                <li><span>删除</span></li>
+            </ul> -->
+
+        </div>
+
+    </div>
+    </div>
+    <script>
+        console.log(location.search);
+
+        var str = location.search;
+        var arr = str.split("?");
+        arr = arr[1];
+        arr = arr.split("/");
+        console.log(arr)
+        var id = arr[0];
+        /* var num = arr[1]; */
+
+
+        $.get("http://jx.xuzhixiang.top/ap/api/cart-list.php", {
+            id: 38559
+        }, data => {
+
+            var str = "";
+            var index;
+            var and = 0;
+            $.each(data.data, function(i) {
+
+                console.log(data.data)
+                sum = parseInt(data.data[i].pprice) * data.data[i].pnum;
+                str += `
+                                         <ul>
+                                  <li><input type="checkbox" id="btn"> <img src="${data.data[i].pimg}"></li>
+                                  <li>${data.data[i].pname} </li>
+                                  <li>${data.data[i].pprice} </li>
+                                  <li><p>+</p><span>${data.data[i].pnum}</span><p>-</p> </li>
+                                  <li> ${sum}</li>
+                                  <li><span>删除</span> </li>
+                                              </ul>
+                                          `
+
+                $(".cart").html(str);
+
+
+            })
+            var aInput = document.querySelectorAll("input");
+
+
+            var count = 0;
+            /* for (let i = 1; i < aInput.length; i++) {
+                aInput[i].onclick = () => {
+                    console.log("a")
+                    if (aInput[i].checked) {
+                        count++;
+                    } else {
+                        count--;
+                    }
+                    console.log(count)
+                    if (count == aInput.length - 1) {
+                        aInput[0].checked = true;
+                    } else {
+                        aInput[0].checked = false;
+                    }
+                }
+            } */
+
+
+
+            for (let k = 0; k < aInput.length; k++) {
+                /*  */
+                aInput[k].onclick = () => {
+                    //console.log(count)
+                    if (k == 0) {
+                        and = 0;
+                        console.log("a")
+                        for (let i = 1; i < aInput.length; i++) {
+                            aInput[i].checked = aInput[k].checked;
+                            if (aInput[k].checked) {
+
+                                and += parseInt(data.data[i - 1].pprice) * data.data[i - 1].pnum;
+                                count = 3;
+                            } else {
+
+                                and = 0;
+                            }
+                            console.log(count)
+                        }
+
+
+                        $(".cart-top p").html(and);
+                    }
+                    if (k > 0) {
+                        console.log(count)
+                        if (aInput[k].checked) {
+                            and += parseInt(data.data[k - 1].pprice) * data.data[k - 1].pnum;
+                            console.log(data.data[k - 1].pprice, and);
+                            console.log(count)
+                            count++;
+                        }
+                        if (!aInput[k].checked) {
+                            count--;
+                            console.log(count)
+                            if (count <= 0) {
+                                count = 0;
+                            }
+                            if (and <= 0) {
+                                and = 0;
+                            } else {
+
+                                and -= parseInt(data.data[k - 1].pprice) * data.data[k - 1].pnum;
+                            }
+                        }
+                        console.log(count)
+                        if (count == aInput.length - 1) {
+                            aInput[0].checked = true;
+                            count = 0;
+                        } else {
+                            aInput[0].checked = false;
+
+                        }
+                        $(".cart-top p").html(and);
+                    }
+
+
+                }
+            }
+            $(".")
+        })
+    </script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/startmove.js"></script>
+    <!-- <script src="./js/swiper-bundle.m.js"></script> -->
+    <script src="./js/shuju.js"></script>
+
+</body>
+
+</html>
+
+</html>

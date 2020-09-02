@@ -387,7 +387,7 @@
                 }
             })
             $("#box input").eq(2).click(function() {
-                $.get("http://jx.xuzhixiang.top/ap/api/reg.php", {
+                $.get("http://jx.xuzhixiang.top/ap/api/login.php", {
                     username: $("#box input").eq(0).val(),
                     password: $("#box input").eq(1).val()
 
@@ -397,7 +397,7 @@
                         alert(data.msg);
                     } else {
 
-                        location.href = "首页.html";
+                        /* location.href = "首页.html"; */
                     }
                 })
             })
