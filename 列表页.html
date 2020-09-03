@@ -219,6 +219,16 @@
         font-size: 12px;
         margin: 10px 0;
     }
+    
+    #zhanshi li input {
+        width: 100%;
+        height: 40px;
+        border: none;
+        background: red;
+        color: #333333;
+        font-size: 20px;
+        outline: none;
+    }
 </style>
 
 <body>
@@ -226,7 +236,7 @@
     <div class="nav">
         <div>
             <ul class="text-left left">
-                <li><a href="#">首页</a><span class="iconfont icon-vertical_line"></span></li>
+                <li><a href="首页.html">首页</a><span class="iconfont icon-vertical_line"></span></li>
                 <li><a href="#">华为官网</a><span class="iconfont icon-vertical_line"></span></li>
                 <li><a href="#">荣耀官网</a><span class="iconfont icon-vertical_line"></span></li>
                 <li><a href="#">花粉俱乐部</a><span class="iconfont icon-vertical_line"></span></li>
@@ -293,11 +303,11 @@
                     <span class="iconfont icon-vertical_line"></span>
                 </li>
                 <li>
-                    <a href="#">注册</a>
+                    <a href="注册页面.html">注册</a>
                     <span class="iconfont icon-vertical_line"></span>
                 </li>
                 <li>
-                    <a href="#">请登录</a>
+                    <a href="登录页.html">请登录</a>
                 </li>
 
             </ul>
@@ -319,21 +329,32 @@
     </div>
     <script>
         /*取数据 */
+        $("#zhanshi input").each(function(i) {
+                $("#zhanshi input").eq(i).click(function() {
 
-        /* console.log(i) */
-        /*  var arr = [];
+                    $.get("http://jx.xuzhixiang.top/ap/api/add-product.php", {
+                        uid: 38559,
+                        pid: nameId,
+                        pnum: 1
+                    }, data => {
+                        console.log(data)
+                    })
+                })
+            })
+            /* console.log(i) */
+            /*  var arr = [];
 
 
-         for (let i = 286007; i < 286024; i++) {
-             $.get("http://jx.xuzhixiang.top/ap/api/detail.php", {
-                 id: i
-             }, data => {
-                 arr.push(data.data);
-                 console.log(arr[0].pname);
+             for (let i = 286007; i < 286024; i++) {
+                 $.get("http://jx.xuzhixiang.top/ap/api/detail.php", {
+                     id: i
+                 }, data => {
+                     arr.push(data.data);
+                     console.log(arr[0].pname);
 
-             })
-         }
-         console.log(arr) */
+                 })
+             }
+             console.log(arr) */
 
         $.get("http://jx.xuzhixiang.top/ap/api/productlist.php", {
             uid: 38559,
@@ -341,24 +362,39 @@
         }, data => {
             var str = "";
             $.each(data.data, function(i) {
-                //console.log(data.data)
+                console.log(data.data)
                 str += `
                     <li>
                         <img Id="${data.data[i].pid}" src="${data.data[i].pimg}">
                         <p>${data.data[i].pname}</p>
                         <p>${data.data[i].pdesc}</p>
                         <span>¥${data.data[i].pprice}</span>
+                        <input type="button" value="加入购物车">
                         </li>
                     `
 
             })
             $("#zhanshi").html(str);
+
             $("#zhanshi img").each(function(i) {
                 $("#zhanshi img").eq(i).click(function() {
                     console.log("a")
                     console.log($("#zhanshi img").eq(i).attr("Id"));
                     var nameid = $("#zhanshi img").eq(i).attr("Id");
                     location.href = "详情页.html?" + nameid
+
+                })
+                $("#zhanshi input").eq(i).click(function() {
+                    var nameid = $("#zhanshi img").eq(i).attr("Id");
+                    $.get("http://jx.xuzhixiang.top/ap/api/add-product.php", {
+                        uid: 38559,
+                        pid: nameid,
+                        pnum: 1
+                    }, data => {
+                        console.log(data)
+                        alert("添加成功");
+                    })
+
                 })
 
             })

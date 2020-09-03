@@ -338,7 +338,7 @@
     <div class="nav">
         <div>
             <ul class="text-left left">
-                <li><a href="#">首页</a><span class="iconfont icon-vertical_line"></span></li>
+                <li><a href="首页.html">首页</a><span class="iconfont icon-vertical_line"></span></li>
                 <li><a href="#">华为官网</a><span class="iconfont icon-vertical_line"></span></li>
                 <li><a href="#">荣耀官网</a><span class="iconfont icon-vertical_line"></span></li>
                 <li><a href="#">花粉俱乐部</a><span class="iconfont icon-vertical_line"></span></li>
@@ -405,11 +405,11 @@
                     <span class="iconfont icon-vertical_line"></span>
                 </li>
                 <li>
-                    <a href="#">注册</a>
+                    <a href="注册页面.html">注册</a>
                     <span class="iconfont icon-vertical_line"></span>
                 </li>
                 <li>
-                    <a href="#">请登录</a>
+                    <a href="登录页.html">请登录</a>
                 </li>
 
             </ul>
@@ -474,11 +474,11 @@
         var arr = str.split("?");
         arr = arr[1];
         arr = arr.split("/");
-        console.log(arr)
         var id = arr[0];
-        /* var num = arr[1]; */
+        console.log(id)
+            /* var num = arr[1]; */
 
-
+        /* 添加到页面上 */
         $.get("http://jx.xuzhixiang.top/ap/api/cart-list.php", {
             id: 38559
         }, data => {
@@ -488,10 +488,10 @@
             var and = 0;
             $.each(data.data, function(i) {
 
-                console.log(data.data)
-                sum = parseInt(data.data[i].pprice) * data.data[i].pnum;
-                str += `
-                                         <ul>
+                    console.log(data.data)
+                    sum = parseInt(data.data[i].pprice) * data.data[i].pnum;
+                    str += `
+                                         <ul dataId="${data.data[i].pid}">
                                   <li><input type="checkbox" id="btn"> <img src="${data.data[i].pimg}"></li>
                                   <li>${data.data[i].pname} </li>
                                   <li>${data.data[i].pprice} </li>
@@ -501,92 +501,199 @@
                                               </ul>
                                           `
 
-                $(".cart").html(str);
+                    $(".cart").html(str);
 
 
-            })
+                })
+                /* 添加到页面下 */
             var aInput = document.querySelectorAll("input");
 
 
             var count = 0;
-            /* for (let i = 1; i < aInput.length; i++) {
-                aInput[i].onclick = () => {
-                    console.log("a")
-                    if (aInput[i].checked) {
-                        count++;
-                    } else {
-                        count--;
+            /* 数据加减 */
+            $(".cart ul").each(function(i) {
+                var and2 = 0;
+                var abc = 0;
+                var num1 = $(".cart ul").eq(i).find("span").eq(0).html();
+                num1 = Number(num1);
+                var and1 = $(".cart ul").eq(i).find("li").eq(2).html();
+                var total = $(".cart-top p").html();
+                /* 删除购物车 */
+                $(".cart ul").eq(i).find("span").eq(1).click(function() {
+                        var nameId = $(".cart ul").eq(i).attr("dataId");
+                        $.get("http://jx.xuzhixiang.top/ap/api/cart-delete.php", {
+                            uid: 38559,
+                            pid: nameId
+                        }, data => {
+                            alert("删除成功");
+                            //$(".cart ul").eq(i).remove();
+                            location.reload();
+                        })
+                    })
+                    /*  */
+                $(".cart ul").eq(i).find("p").eq(0).click(function() {
+                    var nameId = $(".cart ul").eq(i).attr("dataId");
+                    console.log(nameId)
+                    console.log(num1)
+                        //abc++;
+                    num1++;
+                    // console.log(id);
+                    $(".cart ul").eq(i).find("span").eq(0).html(num1);
+                    $(".cart ul").eq(i).find("li").eq(4).html(num1 * and1);
+                    $.get("http://jx.xuzhixiang.top/ap/api/add-product.php", {
+                            uid: 38559,
+                            pid: nameId,
+                            pnum: 1
+                        }, data => {
+                            console.log(data)
+                        })
+                        /*  */
+                    $.get("http://jx.xuzhixiang.top/ap/api/cart-list.php", {
+                            id: 38559,
+
+                        }, data => {
+                            console.log(data)
+                        })
+                        /*  */
+                    and2 = 0;
+                    for (let j = 1; j < aInput.length; j++) {
+                        //and = 0;
+                        if (aInput[j].checked) {
+                            and2 += parseInt($(".cart ul").eq(j - 1).find("li").eq(4).html());
+                        }
+                        console.log(and2)
+                        $(".cart-top p").html(and2)
                     }
-                    console.log(count)
-                    if (count == aInput.length - 1) {
-                        aInput[0].checked = true;
-                    } else {
-                        aInput[0].checked = false;
+
+
+
+                })
+                $(".cart ul").eq(i).find("p").eq(1).click(function() {
+
+                    num1--;
+                    console.log(num1)
+                    if (num1 < 1) {
+                        num1 = 1;
+                        return;
                     }
-                }
-            } */
+                    /*  */
+                    var nameId = $(".cart ul").eq(i).attr("dataId");
+                    $.get("http://jx.xuzhixiang.top/ap/api/add-product.php", {
+                            uid: 38559,
+                            pid: nameId,
+                            pnum: -1
+                        }, data => {
+                            console.log(data)
+                        })
+                        /*  */
+                    $.get("http://jx.xuzhixiang.top/ap/api/cart-list.php", {
+                            id: 38559,
 
+                        }, data => {
+                            console.log(data)
+                        })
+                        /*  */
+                    console.log(num1)
+                    $(".cart ul").eq(i).find("span").eq(0).html(num1);
+                    $(".cart ul").eq(i).find("li").eq(4).html(num1 * and1);
+                    if (aInput[0].checked) {
+                        $(".cart ul").each(function(j) {
+                            and2 += parseInt($(".cart ul").eq(j).find("li").eq(4).html());
+                        });
+                        $(".cart-top p").html(and2);
+                        and2 = 0;
+                    }
+                    and2 = 0;
+                    for (let j = 1; j < aInput.length; j++) {
+                        //and = 0;
+                        if (aInput[j].checked) {
+                            and2 += parseInt($(".cart ul").eq(j - 1).find("li").eq(4).html());
+                        }
+                        console.log(and2)
+                        $(".cart-top p").html(and2)
+                    }
+                })
 
+            })
 
+            //圆点上
             for (let k = 0; k < aInput.length; k++) {
                 /*  */
                 aInput[k].onclick = () => {
                     //console.log(count)
                     if (k == 0) {
                         and = 0;
+                        var index = 0;
                         console.log("a")
                         for (let i = 1; i < aInput.length; i++) {
                             aInput[i].checked = aInput[k].checked;
                             if (aInput[k].checked) {
 
-                                and += parseInt(data.data[i - 1].pprice) * data.data[i - 1].pnum;
-                                count = 3;
-                            } else {
+                                $(".cart ul").each(function(j) {
+                                    and += parseInt($(".cart ul").eq(j).find("li").eq(4).html());
 
-                                and = 0;
+                                    index = j;
+                                })
+                                count = (index + 1);
+                            } else {
+                                count = 0;
+
                             }
-                            console.log(count)
+                            console.log(index)
+
                         }
 
 
-                        $(".cart-top p").html(and);
+                        $(".cart-top p").html(and / (index + 1));
+                        and = 0;
                     }
                     if (k > 0) {
                         console.log(count)
+                        var arrand = 0;
+                        and = 0;
+                        for (let j = 1; j < aInput.length; j++) {
+                            if (aInput[j].checked) {
+                                and += parseInt($(".cart ul").eq(j - 1).find("li").eq(4).html());
+                                console.log($(".cart ul").eq(j - 1).find("li").eq(4).html(), and)
+                            }
+                        }
+                        console.log(and)
+
+
                         if (aInput[k].checked) {
-                            and += parseInt(data.data[k - 1].pprice) * data.data[k - 1].pnum;
+
+
                             console.log(data.data[k - 1].pprice, and);
-                            console.log(count)
+                            console.log(count, and, k)
                             count++;
+
                         }
                         if (!aInput[k].checked) {
                             count--;
+                            //and = 0;
                             console.log(count)
                             if (count <= 0) {
                                 count = 0;
                             }
-                            if (and <= 0) {
-                                and = 0;
-                            } else {
 
-                                and -= parseInt(data.data[k - 1].pprice) * data.data[k - 1].pnum;
-                            }
                         }
-                        console.log(count)
+                        console.log(count, and, k)
                         if (count == aInput.length - 1) {
                             aInput[0].checked = true;
-                            count = 0;
+                            //count = 0;
                         } else {
                             aInput[0].checked = false;
 
                         }
                         $(".cart-top p").html(and);
+
                     }
 
 
                 }
             }
-            $(".")
+
+
         })
     </script>
     <script src="./js/bootstrap.js"></script>

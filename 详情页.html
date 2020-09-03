@@ -225,12 +225,15 @@
         min-width: 1200px;
         height: 600px;
         padding-top: 20px;
+        position: relative;
     }
     
     .details-left {
         width: 450px;
         height: 450px;
         float: left;
+        position: absolute;
+        cursor: pointer;
     }
     
     .details-left img {
@@ -335,6 +338,38 @@
         font-weight: bold;
         cursor: pointer;
     }
+    
+    .big {
+        position: absolute;
+        width: 450px;
+        height: 450px;
+        top: 0;
+        background: white;
+        left: 460px;
+        overflow: hidden;
+        z-index: 1;
+        display: none;
+    }
+    
+    .big img {
+        display: block;
+        width: 1350px;
+        height: 1350px;
+        z-index: 100;
+        position: relative;
+    }
+    
+    .small {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: yellow;
+        opacity: .3;
+        width: 150px;
+        height: 150px;
+        z-index: 1;
+        display: none;
+    }
 </style>
 
 <body>
@@ -342,7 +377,7 @@
     <div class="nav">
         <div>
             <ul class="text-left left">
-                <li><a href="#">首页</a><span class="iconfont icon-vertical_line"></span></li>
+                <li><a href="首页.html">首页</a><span class="iconfont icon-vertical_line"></span></li>
                 <li><a href="#">华为官网</a><span class="iconfont icon-vertical_line"></span></li>
                 <li><a href="#">荣耀官网</a><span class="iconfont icon-vertical_line"></span></li>
                 <li><a href="#">花粉俱乐部</a><span class="iconfont icon-vertical_line"></span></li>
@@ -409,11 +444,11 @@
                     <span class="iconfont icon-vertical_line"></span>
                 </li>
                 <li>
-                    <a href="#">注册</a>
+                    <a href="注册页面.html">注册</a>
                     <span class="iconfont icon-vertical_line"></span>
                 </li>
                 <li>
-                    <a href="#">请登录</a>
+                    <a href="登录页.html">请登录</a>
                 </li>
 
             </ul>
@@ -435,8 +470,12 @@
         <div class="details">
             <div class="details-left">
                 <img id="Img" src="" alt="">
+                <div class="small"></div>
             </div>
             <div class="details-right">
+                <div class="big">
+                    <img id="Img" src="" alt="">
+                </div>
                 <p><span>11111</span>前置3200万追焦双摄 50倍潜望式变焦四摄 麒麟985 5G SoC 8GB+128GB 全网通版（亮黑色）</p>
                 <a href="">
                     【品牌盛典】①享6期免息②整点赠不锈钢保温杯③限量赠50元花币卡④赠精美礼券|以旧换新最高补贴1000元，点击参与>>>
@@ -478,24 +517,60 @@
         $.get("http://jx.xuzhixiang.top/ap/api/detail.php", {
             id: arr
         }, data => {
-            /* var str = "";
-
             console.log(data.data)
-            str += `
-                    <li>
-                        <img Id="${data.data.pid}" src="${data.data.pimg}">
-                        <p>${data.data.pname}</p>
-                        <p>${data.data.pdesc}</p>
-                        <span>¥${data.data.pprice}</span>
-                        </li>
-                    `
+                /* var str = "";
+
+                str += `
+                        <li>
+                            <img Id="${data.data.pid}" src="${data.data.pimg}">
+                            <p>${data.data.pname}</p>
+                            <p>${data.data.pdesc}</p>
+                            <span>¥${data.data.pprice}</span>
+                            </li>
+                        `
 
 
-            $(".details").html(str); */
-            /* $(".details-left img").src("data.data.pimg"); */
-            var aImg = document.querySelector("#Img");
+                $(".details").html(str); */
+                /* $(".details-left img").src("data.data.pimg"); */
+            var aImg = document.querySelectorAll("#Img");
             console.log(aImg, data.data.pimg)
-            aImg.src = "" + data.data.pimg;
+            aImg[0].src = "" + data.data.pimg;
+            aImg[1].src = "" + data.data.pimg;
+            //small小  
+            $(".details-left").hover(function() {
+                $(".big").show();
+                $(".small").show();
+            }, function() {
+                $(".big").hide();
+                $(".small").hide();
+            });
+            $(".details-left").mousemove(function(e) {
+                //var eve = e || event;
+                var l = e.pageX - $(".details-left").offset().left - $(".small").outerHeight() / 2;
+                var t = e.pageY - $(".details-left").offset().top - $(".small").outerWidth() / 2;
+                if (l < 0) {
+                    l = 0;
+                }
+                if (t < 0) {
+                    t = 0;
+                }
+                if (l > $(".details-left").offset().left - $(".small").outerWidth() / 2) {
+                    l = $(".details-left").offset().left - $(".small").outerWidth() / 2
+                }
+                if (t > 300) {
+                    t = 300
+                }
+                //console.log($(".small").outerHeight)
+
+                $(".small").css({
+                    left: l,
+                    top: t
+                })
+                $(".big img").css({
+                    left: -3 * l,
+                    top: -3 * t
+                })
+            })
             $(".details-right p span").html(data.data.pname);
             $(".details-right-cent div span").html(data.data.pprice);
             $(".details-right-bottom span").eq(1).click(function() {
